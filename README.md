@@ -19,7 +19,6 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 
 To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about to release an extension called Mageplaza GDPR for Magento 2. This module is to supports online stores to comply those data privacy regulations.
 
-![magento 2 gdpr](https://i.imgur.com/YKLcnoN.png)
 
 
 ## How to install GDPR for Magento 2
@@ -38,13 +37,21 @@ php bin/magento setup:static-content:deploy
 - Download the latest version [here](https://github.com/mageplaza/magento-2-gdpr/releases)
 -  [Installation guide](https://www.mageplaza.com/install-magento-2-extension/)
 
+## Documentations
+- [Mageplaza](https://www.mageplaza.com)
+- [Docs](http://docs.mageplaza.com/)
 
 ## Mageplaza GDPR Standard - Highlights
 
 ### Delete accounts
+![magento 2 gdpr](https://i.imgur.com/tRx17HI.png)
+
 Magento 2 GDPR by Mageplaza supports customers in permanently deleting their accounts on your e-website. All related information including one which is considered private data will be completely removed along with customers’ accounts. This helps the buyers make sure that their personal information is protected by GDPR.
 
 ### Delete default addresses
+
+![delete default addresses for gdpr](https://i.imgur.com/zTlpRIG.png)
+
 Default addresses including Billing and Shipping addresses are seen as private data of a human being according to GDPR. Hence, allowing buyers to delete these information is an action which proves that you are making a strong commitment to protect your users. With Magento 2 GDPR, this is easily performed by your customers with only few easy and clear steps.
 
 ## Mageplaza GDPR Pro - An Innovative Version
