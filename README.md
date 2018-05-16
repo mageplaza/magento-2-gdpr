@@ -1,0 +1,1 @@
+- User guide: https://docs.mageplaza.com/gdpr-m2/index.html

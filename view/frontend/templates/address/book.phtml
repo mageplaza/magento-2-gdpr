@@ -1,0 +1,64 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Gdpr
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Magento\Customer\Block\Address\Book $block */
+
+/** @var \Mageplaza\Gdpr\Helper\Data $helper */
+$helper = $this->helper(\Mageplaza\Gdpr\Helper\Data::class);
+
+$defaultBillingAddressId  = $block->getDefaultBilling();
+$defaultShippingAddressId = $block->getDefaultShipping();
+
+if ($helper->allowDeleteDefaultAddress()): ?>
+    <script type="text/javascript">
+        //<![CDATA[
+        require(['jquery'], function ($) {
+            "use strict";
+
+            <?php if($defaultBillingAddressId): ?>
+            var deleteBillingEl = '<a class="action delete mp-gdpr-delete" href="#" role="delete-address" data-address="<?php echo $defaultBillingAddressId ?>"><span><?php echo __('Delete Address') ?></span></a>';
+            var boxBillingActions = $('.block-addresses-default .box-address-billing .box-actions');
+            if (boxBillingActions.length) {
+                boxBillingActions.append(deleteBillingEl);
+            }
+            <?php endif; ?>
+
+            <?php if($defaultShippingAddressId): ?>
+            var deleteShippingEl = '<a class="action delete mp-gdpr-delete" href="#" role="delete-address" data-address="<?php echo $defaultShippingAddressId ?>"><span><?php echo __('Delete Address') ?></span></a>';
+            var boxShippingActions = $('.block-addresses-default .box-address-shipping .box-actions');
+            if (boxShippingActions.length) {
+                boxShippingActions.append(deleteShippingEl);
+            }
+            <?php endif; ?>
+        });
+        //]]>
+    </script>
+    <script type="text/x-magento-init">
+    {
+        ".block-addresses-default": {
+            "address": {
+                "deleteAddress": "a.mp-gdpr-delete[role='delete-address']",
+                "deleteUrlPrefix": "<?php echo $block->escapeUrl($block->getDeleteUrl()) ?>id/"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

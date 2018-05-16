@@ -1,0 +1,52 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Gdpr
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Magento\Customer\Block\Address\Book $block */
+
+/** @var \Mageplaza\Gdpr\Helper\Data $helper */
+$helper = $this->helper(\Mageplaza\Gdpr\Helper\Data::class);
+
+if ($helper->allowDeleteAccount()): ?>
+    <script type="text/javascript">
+        //<![CDATA[
+        require(['jquery'], function ($) {
+            "use strict";
+
+            var deleteAccountEl = '<a class="action delete mp-gdpr-delete" href="#" role="delete-account" data-address=""><span><?php echo __('Delete Account') ?></span></a>';
+            var boxAccountInfo = $('.block-dashboard-info .block-title');
+            if (boxAccountInfo.length) {
+                boxAccountInfo.append(deleteAccountEl);
+            }
+        });
+        //]]>
+    </script>
+    <script type="text/x-magento-init">
+    {
+        ".page-main": {
+            "address": {
+                "deleteAddress": "a.mp-gdpr-delete[role='delete-account']",
+                "deleteUrlPrefix": "<?php echo $block->escapeUrl(rtrim($helper->getDeleteAccountUrl(), '/')) ?>",
+                "deleteConfirmMessage": "<?php echo __('Are you sure you want to delete your account?') ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>
