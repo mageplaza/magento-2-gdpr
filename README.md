@@ -1,1 +1,1 @@
-- User guide: https://docs.mageplaza.com/gdpr-m2/index.html
+# Magento 2 GDPR extension by Mageplaza (General Data Protection Regulation)
