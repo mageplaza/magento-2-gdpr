@@ -25,24 +25,27 @@
 $helper = $this->helper(\Mageplaza\Gdpr\Helper\Data::class);
 
 if ($helper->allowDeleteAccount()): ?>
-    <script type="text/javascript">
-        //<![CDATA[
-        require(['jquery'], function ($) {
-            "use strict";
-
-            var deleteAccountEl = '<a class="action delete mp-gdpr-delete" href="#" role="delete-account" data-address=""><span><?php echo __('Delete Account') ?></span></a>';
-            var boxAccountInfo = $('.block-dashboard-info .block-title');
-            if (boxAccountInfo.length) {
-                boxAccountInfo.append(deleteAccountEl);
-            }
-        });
-        //]]>
-    </script>
+    <fieldset class="fieldset info mp-gdpr-delete-account">
+        <legend class="legend">
+            <span><?php echo __('Delete Account') ?></span>
+        </legend><br>
+        <div class="gdpr-delete-message">
+            <?php echo $helper->getDeleteAccountMessage() ?>
+        </div>
+        <?php echo $block->getChildHtml('form_additional_info'); ?>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action save primary action-delete" role="delete-account" data-address="" title="<?php echo __('Delete your account') ?>">
+                    <span><?php echo __('Delete your account') ?></span>
+                </button>
+            </div>
+        </div>
+    </fieldset>
     <script type="text/x-magento-init">
     {
         ".page-main": {
             "address": {
-                "deleteAddress": "a.mp-gdpr-delete[role='delete-account']",
+                "deleteAddress": "button[role='delete-account']",
                 "deleteUrlPrefix": "<?php echo $block->escapeUrl(rtrim($helper->getDeleteAccountUrl(), '/')) ?>",
                 "deleteConfirmMessage": "<?php echo __('Are you sure you want to delete your account?') ?>"
             }

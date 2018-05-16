@@ -41,6 +41,15 @@ class Data extends AbstractData
     }
 
     /**
+     * @param null $storeId
+     * @return mixed
+     */
+    public function getDeleteAccountMessage($storeId = null)
+    {
+        return $this->getConfigGeneral('delete_customer_message', $storeId);
+    }
+
+    /**
      * @return string
      */
     public function getDeleteAccountUrl()
