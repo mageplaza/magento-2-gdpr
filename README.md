@@ -19,7 +19,9 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 
 To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about to release an extension called Mageplaza GDPR for Magento 2. This module is to supports online stores to comply those data privacy regulations.
 
-![magento 2 gdpr](https://i.imgur.com/vYwxVdq.png)
+![magento 2 gdpr](https://i.imgur.com/YKLcnoN.png)
+
+
 ## How to install GDPR for Magento 2
 
 
