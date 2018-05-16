@@ -19,6 +19,24 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 
 To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about to release an extension called Mageplaza GDPR for Magento 2. This module is to supports online stores to comply those data privacy regulations.
 
+
+## How to install GDPR for Magento 2
+
+
+### ✓ Install via composer (recommend)
+Run the following command in Magento 2 root folder:
+
+```
+composer require mageplaza/module-gdpr
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy
+```
+### ✓ Install ready-to-paste package (not recommend)
+
+- Download the latest version [here](https://github.com/mageplaza/magento-2-gdpr/releases)
+-  [Installation guide](https://www.mageplaza.com/install-magento-2-extension/)
+
+
 ## Mageplaza GDPR Standard - Highlights
 
 ### Delete accounts
