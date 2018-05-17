@@ -28,7 +28,7 @@
             <tab>mageplaza</tab>
             <resource>Mageplaza_Gdpr::configuration</resource>
             <group id="general" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>General</label>
+                <label>General Configuration</label>
                 <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
@@ -37,7 +37,7 @@
                     <label>Allow Delete Customer Account</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="delete_customer_message" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="delete_customer_message" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Delete message</label>
                     <comment>The message will be shown on Delete Account area. HTML code is allowed.</comment>
                     <depends>
