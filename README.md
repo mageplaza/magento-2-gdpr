@@ -64,3 +64,11 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 
 ### Cookie restriction
 Online stores often use cookies to enhance customer experience. However, through this, a customer can be identified and this is why you need to concern about this. Mageplaza GDPR extension allow store admins to design the Cookie message by using HTML; also, the position to feature the message can be configured to be at the top or bottom of your webpage. Cookie can be restricted in specific countries based on your settings in the backend also.
+
+
+### People also search for
+- Magento 2 GDPR module
+- GDPR for Magento 2
+- GDPR extension for Magento 2
+- Magento 2 GDPR extension
+- Magento 2 GDPR Free
