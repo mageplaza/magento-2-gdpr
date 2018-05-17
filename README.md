@@ -44,13 +44,13 @@ php bin/magento setup:static-content:deploy
 ## Mageplaza GDPR Standard - Highlights
 
 ### Delete accounts
-![magento 2 gdpr](https://i.imgur.com/tRx17HI.png)
+![magento 2 gdpr](https://i.imgur.com/5DYdNyN.png)
 
 Magento 2 GDPR by Mageplaza supports customers in permanently deleting their accounts on your e-website. All related information including one which is considered private data will be completely removed along with customers’ accounts. This helps the buyers make sure that their personal information is protected by GDPR.
 
 ### Delete default addresses
 
-![delete default addresses for gdpr](https://i.imgur.com/zTlpRIG.png)
+![delete default addresses for gdpr](https://i.imgur.com/rlbuMfk.png)
 
 Default addresses including Billing and Shipping addresses are seen as private data of a human being according to GDPR. Hence, allowing buyers to delete these information is an action which proves that you are making a strong commitment to protect your users. With Magento 2 GDPR, this is easily performed by your customers with only few easy and clear steps.
 
