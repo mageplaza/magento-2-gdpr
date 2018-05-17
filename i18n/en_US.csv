@@ -1,11 +1,14 @@
 "Something wrong while deleting your account. Please contact the store owner.","Something wrong while deleting your account. Please contact the store owner."
-"Delete Account","Delete Account"
-"Are you sure you want to delete your account?","Are you sure you want to delete your account?"
 "You will go to our homepage in 5 seconds.","You will go to our homepage in 5 seconds."
+"Delete Account","Delete Account"
+"Delete your account","Delete your account"
+"Are you sure you want to delete your account?","Are you sure you want to delete your account?"
 "Delete Address","Delete Address"
 GDPR,GDPR
-General,General
+"General Configuration","General Configuration"
 Enable,Enable
 "Allow Delete Customer Account","Allow Delete Customer Account"
+"Delete message","Delete message"
+"The message will be shown on Delete Account area. HTML code is allowed.","The message will be shown on Delete Account area. HTML code is allowed."
 "Allow Delete Default Address","Allow Delete Default Address"
-"Your account has been deleted","Your account has been deleted"
+"Your account has been deleted.","Your account has been deleted."

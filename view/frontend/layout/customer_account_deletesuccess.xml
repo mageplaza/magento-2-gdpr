@@ -24,7 +24,7 @@
     <body>
         <referenceBlock name="page.main.title">
             <action method="setPageTitle">
-                <argument name="title" translate="true" xsi:type="string">Your account has been deleted</argument>
+                <argument name="title" translate="true" xsi:type="string">Your account has been deleted.</argument>
             </action>
         </referenceBlock>
         <referenceContainer name="content">
