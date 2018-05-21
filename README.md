@@ -26,7 +26,7 @@ php bin/magento setup:static-content:deploy
 
 ## Documentations
 - [Mageplaza](https://www.mageplaza.com)
-- [Docs](http://docs.mageplaza.com/)
+- [User guide](http://docs.mageplaza.com/gdpr/)
 
 ## Mageplaza GDPR Standard Edition - Highlights
 
@@ -46,8 +46,6 @@ Default addresses including Billing and Shipping addresses are seen as private d
 Billing information including data featured in customers’ orders, invoices, credit memos and shipments is seriously important which needs protecting. Your online shoppers, for sure, have rights to manage it themselves, and also, have rights to become anonymous. To support online stores in solving this issue, Mageplaza GDPF Pro version allows customers to anonymize their private information such as names, phone number or addresses by replacing these data by a random string.
 
 Also, customers’ private information on subscribing requests and abandoned carts will become anonymous.  
-
-
 
 ## Why do we need the GDPR?
 It is obviously easy to understand, the regulation has been adopted as data protection and privacy issues are increasingly becoming a serious concern. In recent decades, the internet growth has continued increasing so does the frequency and effect of data breaches. According to the [Breach Level Index](https://breachlevelindex.com/assets/Breach-Level-Index-Report-H1-2017-Gemalto.pdf), by the first half of 2017, the number of data breaches had risen from above 575 million in 2013 to more than 1,9 billion over the 2-year period. Shockingly, over 95% of these breaches including unencrypted data were not protected properly. The point here is that the total global annual cost of all data breaches, according to [a Juniper’s research](https://www.juniperresearch.com/press/press-releases/cybercrime-cost-businesses-over-2trillion), is forecasted to reach above $2.1 trillion in damages by 2019. You can imagine how severely consumers and organizations can be affected.
