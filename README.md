@@ -41,11 +41,19 @@ Magento 2 GDPR by Mageplaza supports customers in permanently deleting their acc
 
 Default addresses including Billing and Shipping addresses are seen as private data of a human being according to GDPR. Hence, allowing buyers to delete these information is an action which proves that you are making a strong commitment to protect your users. With Magento 2 GDPR, this is easily performed by your customers with only few easy and clear steps.
 
+
+
 ## Mageplaza GDPR Pro Edition - An Innovative Version
-### Manage billing information
+
+### Manage billing information (coming soon)
 Billing information including data featured in customers’ orders, invoices, credit memos and shipments is seriously important which needs protecting. Your online shoppers, for sure, have rights to manage it themselves, and also, have rights to become anonymous. To support online stores in solving this issue, Mageplaza GDPF Pro version allows customers to anonymize their private information such as names, phone number or addresses by replacing these data by a random string.
 
 Also, customers’ private information on subscribing requests and abandoned carts will become anonymous.  
+
+### Cookie restriction (coming soon)
+Online stores often use cookies to enhance customer experience. However, through this, a customer can be identified and this is why you need to concern about this. Mageplaza GDPR extension allow store admins to design the Cookie message by using HTML; also, the position to feature the message can be configured to be at the top or bottom of your webpage. Cookie can be restricted in specific countries based on your settings in the backend also.
+
+
 
 ## Why do we need the GDPR?
 It is obviously easy to understand, the regulation has been adopted as data protection and privacy issues are increasingly becoming a serious concern. In recent decades, the internet growth has continued increasing so does the frequency and effect of data breaches. According to the [Breach Level Index](https://breachlevelindex.com/assets/Breach-Level-Index-Report-H1-2017-Gemalto.pdf), by the first half of 2017, the number of data breaches had risen from above 575 million in 2013 to more than 1,9 billion over the 2-year period. Shockingly, over 95% of these breaches including unencrypted data were not protected properly. The point here is that the total global annual cost of all data breaches, according to [a Juniper’s research](https://www.juniperresearch.com/press/press-releases/cybercrime-cost-businesses-over-2trillion), is forecasted to reach above $2.1 trillion in damages by 2019. You can imagine how severely consumers and organizations can be affected.
@@ -59,9 +67,6 @@ Your Magento 2 store, no matter where you are based, is not out of GDPR effects.
 
 So, it’s high time to concern about your Magento 2 store and prepare for it now no matter where you are located before your organization is in compliance on May 25th, 2018.
 
-
-### Cookie restriction
-Online stores often use cookies to enhance customer experience. However, through this, a customer can be identified and this is why you need to concern about this. Mageplaza GDPR extension allow store admins to design the Cookie message by using HTML; also, the position to feature the message can be configured to be at the top or bottom of your webpage. Cookie can be restricted in specific countries based on your settings in the backend also.
 
 
 ### People also search for
