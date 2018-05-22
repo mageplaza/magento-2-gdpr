@@ -1,4 +1,4 @@
-# Magento 2 GDPR extension by Mageplaza (General Data Protection Regulation) (EU)
+# Magento 2 GDPR FREE by Mageplaza (EU)
 
 ## What is GDPR? - Help Your Magento 2 Store Protect Customers
 GDPR stands for General Data Protection Regulation issued by EU, starting on May 25, 2018. This is a new set of data privacy regulations giving an important impact not only on European countries but also on all over the world.
