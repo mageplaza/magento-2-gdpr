@@ -114,6 +114,9 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         try {
             $customerId = $this->_customerSession->getCustomerId();
 
+            /** event anonymise & delete customer before delete account*/
+            $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer_id' => $customerId]);
+
             /**When perform delete operation, magento check isSecureArea is true/false.*/
             $this->registry->register('isSecureArea', true, true);
             $this->_customerSession->logout();
