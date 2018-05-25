@@ -111,21 +111,19 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
             return;
         }
 
-        $customerId = $this->_customerSession->getCustomerId();
-        $customer                     = $this->_customerRepository->getById($customerId);
-        $customerEmail                = $customer->getEmail();
+        $customer = $this->_customerSession->getCustomer();
 
         /** event anonymise & delete customer before delete account*/
-        $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer_id' => $customerId, 'customer_email' => $customerEmail]);
+        $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer' => $customer]);
 
         try {
             /**When perform delete operation, magento check isSecureArea is true/false.*/
             $this->registry->register('isSecureArea', true, true);
             $this->_customerSession->logout();
-            $this->_customerRepository->deleteById($customerId);
+            $this->_customerRepository->deleteById($customer->getId());
 
             /** event anonymise & delete customer after delete account*/
-            $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer_id' => $customerId, 'customer_email' => $customerEmail]);
+            $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer' => $customer]);
 
             if ($this->getCookieManager()->getCookie('mage-cache-sessid')) {
                 $metadata = $this->getCookieMetadataFactory()->createCookieMetadata();
