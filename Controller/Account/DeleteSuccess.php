@@ -21,10 +21,12 @@
 
 namespace Mageplaza\Gdpr\Controller\Account;
 
+use Magento\Customer\Controller\Account\LogoutSuccess;
+
 /**
  * Class DeleteSuccess
  * @package Magento\Customer\Controller\Account
  */
-class DeleteSuccess extends \Magento\Customer\Controller\Account\LogoutSuccess
+class DeleteSuccess extends LogoutSuccess
 {
 }

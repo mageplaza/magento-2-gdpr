@@ -101,6 +101,8 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
 
     /**
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface|void
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function execute()
     {
@@ -112,7 +114,8 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         }
 
         $customerId = $this->_customerSession->getCustomerId();
-        $customer                     = $this->_customerRepository->getById($customerId);
+        $customer   = $this->_customerRepository->getById($customerId);
+
         /** event anonymise & delete customer before delete account*/
         $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer' => $customer]);
 
