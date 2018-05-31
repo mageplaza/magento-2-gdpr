@@ -45,12 +45,12 @@ Default addresses including Billing and Shipping addresses are seen as private d
 
 ## Mageplaza GDPR Pro Edition - An Innovative Version
 
-### Manage billing information (coming soon)
+### Manage billing information (Pro)
 Billing information including data featured in customers’ orders, invoices, credit memos and shipments is seriously important which needs protecting. Your online shoppers, for sure, have rights to manage it themselves, and also, have rights to become anonymous. To support online stores in solving this issue, Mageplaza GDPF Pro version allows customers to anonymize their private information such as names, phone number or addresses by replacing these data by a random string.
 
 Also, customers’ private information on subscribing requests and abandoned carts will become anonymous.  
 
-### Cookie restriction (coming soon)
+### Cookie restriction (Pro)
 Online stores often use cookies to enhance customer experience. However, through this, a customer can be identified and this is why you need to concern about this. Mageplaza GDPR extension allow store admins to design the Cookie message by using HTML; also, the position to feature the message can be configured to be at the top or bottom of your webpage. Cookie can be restricted in specific countries based on your settings in the backend also.
 
 
