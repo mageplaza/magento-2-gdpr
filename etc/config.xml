@@ -28,6 +28,7 @@
                 <allow_delete_customer>1</allow_delete_customer>
                 <delete_customer_message>Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.</delete_customer_message>
                 <allow_delete_default_address>1</allow_delete_default_address>
+                <allow_verify_password>1</allow_verify_password>
             </general>
         </gdpr>
     </default>
