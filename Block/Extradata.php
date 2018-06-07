@@ -5,6 +5,7 @@ namespace Mageplaza\Gdpr\Block;
 use Mageplaza\Gdpr\Helper\Data;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\App\Request\Http;
+
 /**
  * Block Extradata
  */
@@ -21,7 +22,7 @@ class Extradata extends \Magento\Framework\View\Element\Template
      *
      * @var
      */
-    protected$_storeManager;
+    protected $_storeManager;
 
     /**
      * @var \Mageplaza\Gdpr\Helper\Data
@@ -42,11 +43,12 @@ class Extradata extends \Magento\Framework\View\Element\Template
         Http $request,
         Data $heper,
         array $data = array()
-    ) {
+    )
+    {
         parent::__construct($context, $data);
-        $this->_storeManager=$storeManager;
-        $this->_request = $request;
-        $this->_helper  = $heper;
+        $this->_storeManager = $storeManager;
+        $this->_request      = $request;
+        $this->_helper       = $heper;
     }
 
     /**
@@ -111,11 +113,17 @@ class Extradata extends \Magento\Framework\View\Element\Template
      */
     public function getExtraDataContent()
     {
+        $allowVerifyPassword     = $this->_helper->allowVerifyPassword();
+        $currentControllerAction = null;
+        if ($allowVerifyPassword) {
+            $currentControllerAction = 'account-edit';
+        }
         $extraData = array(
-            'lazyload' => $this->getViewFileUrl('images/loader-1.gif'),
-            'currentControllerAction' => 'account-edit',
-            'checkpasswordUrl'  => $this->getUrl('customer/account/checkpassword')
+            'lazyload'                => $this->getViewFileUrl('images/loader-1.gif'),
+            'currentControllerAction' => $allowVerifyPassword,
+            'checkpasswordUrl'        => $this->getUrl('customer/account/checkpassword')
         );
+
         return Data::jsonEncode($extraData);
     }
 
