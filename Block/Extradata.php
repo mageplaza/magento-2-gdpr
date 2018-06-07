@@ -120,7 +120,7 @@ class Extradata extends \Magento\Framework\View\Element\Template
         }
         $extraData = array(
             'lazyload'                => $this->getViewFileUrl('images/loader-1.gif'),
-            'currentControllerAction' => $allowVerifyPassword,
+            'currentControllerAction' => $currentControllerAction,
             'checkpasswordUrl'        => $this->getUrl('customer/account/checkpassword')
         );
 
