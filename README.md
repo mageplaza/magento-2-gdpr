@@ -60,7 +60,7 @@ It is obviously easy to understand, the regulation has been adopted as data prot
 
 That is why GDPR needs to appear as soon as possible with an aim to eliminate and reduce possible harms and threats for both businesses and online shopping doers. The regulations play a role as data security standards which organizations have to follow. 
 
-## Why Mageplaza GDPR is your must-have extension
+## Why Mageplaza GDPR is your must-have module
 Your Magento 2 store, no matter where you are based, is not out of GDPR effects. As long as you are processing and storing data about European citizens, your business will be under the control of GDPR. [In the Art. 3 GDPR, chapter 1](https://gdpr-info.eu/art-3-gdpr/), we can find: 
 
 ![gdpr for magento 2](https://i.imgur.com/9tp5P7q.png)
@@ -75,3 +75,4 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 - GDPR extension for Magento 2
 - Magento 2 GDPR extension
 - Magento 2 GDPR Free
+- GDPR module for Magento 2
