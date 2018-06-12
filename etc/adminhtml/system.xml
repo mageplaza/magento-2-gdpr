@@ -48,11 +48,6 @@
                     <label>Allow Delete Default Address</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="allow_verify_password" translate="label comment" type="select" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Allow Verify Password</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <comment>This feature only show on pro version</comment>
-                </field>
             </group>
         </section>
     </system>

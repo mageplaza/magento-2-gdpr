@@ -49,7 +49,7 @@ if ($helper->allowDeleteAccount()): ?>
                 "deleteAddress": "button[role='delete-account']",
                 "deleteUrlPrefix": "<?php echo $block->escapeUrl(rtrim($helper->getDeleteAccountUrl(), '/')) ?>",
                 "deleteConfirmMessage": "<?php echo __('Are you sure you want to delete your account?') ?>",
-                "extraData": <?php /* @escapeNotVerified */ echo $block->getExtraDataContent() ?>
+                "extraData": <?php /* @escapeNotVerified */ echo $helper->getExtraData(); ?>
             }
         }
     }

@@ -50,15 +50,6 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $storeId
-     * @return mixed
-     */
-    public function allowVerifyPassword($storeId = null)
-    {
-        return $this->getConfigGeneral('allow_verify_password', $storeId);
-    }
-
-    /**
      * @return string
      */
     public function getDeleteAccountUrl()
@@ -73,5 +64,14 @@ class Data extends AbstractData
     public function allowDeleteDefaultAddress($storeId = null)
     {
         return $this->isEnabled($storeId) && $this->getConfigGeneral('allow_delete_default_address', $storeId);
+    }
+
+    /**
+     * get Extra Data
+     * @return array
+     */
+    public function getExtraData()
+    {
+        return $this->jsonEncode(array());
     }
 }
