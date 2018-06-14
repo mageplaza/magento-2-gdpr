@@ -45,12 +45,12 @@ Default addresses including Billing and Shipping addresses are seen as private d
 
 ## Mageplaza GDPR Pro Edition - An Innovative Version
 
-### Manage billing information (coming soon)
+### Manage billing information (Pro)
 Billing information including data featured in customers’ orders, invoices, credit memos and shipments is seriously important which needs protecting. Your online shoppers, for sure, have rights to manage it themselves, and also, have rights to become anonymous. To support online stores in solving this issue, Mageplaza GDPF Pro version allows customers to anonymize their private information such as names, phone number or addresses by replacing these data by a random string.
 
 Also, customers’ private information on subscribing requests and abandoned carts will become anonymous.  
 
-### Cookie restriction (coming soon)
+### Cookie restriction (Pro)
 Online stores often use cookies to enhance customer experience. However, through this, a customer can be identified and this is why you need to concern about this. Mageplaza GDPR extension allow store admins to design the Cookie message by using HTML; also, the position to feature the message can be configured to be at the top or bottom of your webpage. Cookie can be restricted in specific countries based on your settings in the backend also.
 
 
@@ -60,7 +60,7 @@ It is obviously easy to understand, the regulation has been adopted as data prot
 
 That is why GDPR needs to appear as soon as possible with an aim to eliminate and reduce possible harms and threats for both businesses and online shopping doers. The regulations play a role as data security standards which organizations have to follow. 
 
-## Why Mageplaza GDPR is your must-have extension
+## Why Mageplaza GDPR is your must-have module
 Your Magento 2 store, no matter where you are based, is not out of GDPR effects. As long as you are processing and storing data about European citizens, your business will be under the control of GDPR. [In the Art. 3 GDPR, chapter 1](https://gdpr-info.eu/art-3-gdpr/), we can find: 
 
 ![gdpr for magento 2](https://i.imgur.com/9tp5P7q.png)
@@ -75,3 +75,4 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 - GDPR extension for Magento 2
 - Magento 2 GDPR extension
 - Magento 2 GDPR Free
+- GDPR module for Magento 2
