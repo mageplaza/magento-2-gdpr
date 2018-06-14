@@ -68,10 +68,10 @@ class Data extends AbstractData
 
     /**
      * get Extra Data
-     * @return array
+     * @return string
      */
     public function getExtraData()
     {
-        return $this->jsonEncode(array());
+        return $this->jsonEncode([]);
     }
 }

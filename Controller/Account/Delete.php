@@ -115,7 +115,8 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
 
         $customerId = $this->_customerSession->getCustomerId();
         $customer   = $this->_customerRepository->getById($customerId);
-        $checktoken = new \Magento\Framework\DataObject(array('flag' => true));
+        $checktoken = new \Magento\Framework\DataObject(['flag' => true]);
+
         /** event anonymise & delete customer before delete account*/
         $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer' => $customer, 'checktoken' => $checktoken]);
 

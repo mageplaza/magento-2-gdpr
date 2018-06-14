@@ -32,8 +32,9 @@ if ($helper->allowDeleteAccount()): ?>
         <div class="gdpr-delete-message">
             <?php echo $helper->getDeleteAccountMessage() ?>
         </div>
+
         <?php echo $block->getChildHtml('form_additional_info'); ?>
-        <div id="comfirm-password"></div>
+
         <div class="actions-toolbar">
             <div class="primary">
                 <button type="submit" class="action save primary action-delete" role="delete-account" data-address="" title="<?php echo __('Delete your account') ?>">
@@ -49,7 +50,7 @@ if ($helper->allowDeleteAccount()): ?>
                 "deleteAddress": "button[role='delete-account']",
                 "deleteUrlPrefix": "<?php echo $block->escapeUrl(rtrim($helper->getDeleteAccountUrl(), '/')) ?>",
                 "deleteConfirmMessage": "<?php echo __('Are you sure you want to delete your account?') ?>",
-                "extraData": <?php /* @escapeNotVerified */ echo $helper->getExtraData(); ?>
+                "extraData": <?php echo $helper->getExtraData(); ?>
             }
         }
     }
