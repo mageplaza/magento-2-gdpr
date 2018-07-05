@@ -21,7 +21,7 @@ php bin/magento setup:static-content:deploy
 ```
 ### ✓ Install ready-to-paste package (not recommend)
 
-- Download the latest version [here](https://github.com/mageplaza/magento-2-gdpr/releases)
+- Download the latest version [here](https://www.mageplaza.com/magento-2-gdpr-extension/)
 -  [Installation guide](https://www.mageplaza.com/install-magento-2-extension/)
 
 ## Documentations
