@@ -1,0 +1,14 @@
+"Something wrong while deleting your account. Please contact the store owner.","Une erreur est survenue lors de la suppression de votre compte. Veuillez contacter le propriétaire de la boutique."
+"You will go to our homepage in 5 seconds.","Vous allez être redirigé sur la page d'accueil dans 5 secondes."
+"Delete Account","Suppression de compte"
+"Delete your account","Supprimer votre compte"
+"Are you sure you want to delete your account?","Êtes-vous sûr de vouloir supprimer votre compte ?"
+"Delete Address","Supprimer adresse"
+GDPR,RGPD
+"General Configuration","Configuration générale"
+Enable,Activer
+"Allow Delete Customer Account","Autoriser la suppression de compte client"
+"Delete message","Message de suppression"
+"The message will be shown on Delete Account area. HTML code is allowed.","Le message sera affiché dans la rubrique Suppression de compte. Le code HTML est autorisé."
+"Allow Delete Default Address","Autoriser la suppression de l'adresse par défaut"
+"Your account has been deleted.","Votre compte a été supprimé."
