@@ -56,9 +56,10 @@ if ($helper->allowDeleteDefaultAddress()): ?>
         ".block-addresses-default": {
             "address": {
                 "deleteAddress": "a.mp-gdpr-delete[role='delete-address']",
-                "deleteUrlPrefix": "<?php echo $block->escapeUrl($block->getDeleteUrl()) ?>id/"
+                "deleteUrlPrefix": "<?php echo $block->getUrl('customer/address/delete/') ?>id/"
             }
         }
+
     }
     </script>
 <?php endif; ?>
