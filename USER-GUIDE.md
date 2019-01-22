@@ -4,8 +4,8 @@
 - User Guide: https://docs.mageplaza.com/gdpr-m2/
 - Product page: https://www.mageplaza.com/magento-2-gdpr-extension/
 - FAQs: https://www.mageplaza.com/faqs/
-- Get Support: https://mageplaza.freshdesk.com/ or support@mageplaza.com
-- Changelog: https://www.mageplaza.com/changelog/m2-gdpr.txt
+- Get Support: https://www.mageplaza.com/contact.html or support@mageplaza.com
+- Changelog: https://www.mageplaza.com/releases/gdpr
 - License agreement: https://www.mageplaza.com/LICENSE.txt
 
 

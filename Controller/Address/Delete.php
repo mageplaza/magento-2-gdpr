@@ -21,9 +21,9 @@
 
 namespace Mageplaza\Gdpr\Controller\Address;
 
-use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\Action\Action;
 use Magento\Customer\Api\AddressRepositoryInterface;
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
 
 /**
  * Class Delete
@@ -38,6 +38,7 @@ class Delete extends Action
 
     /**
      * Delete constructor.
+     *
      * @param Context $context
      * @param \Magento\Customer\Api\AddressRepositoryInterface $addressRepository
      */
@@ -47,6 +48,7 @@ class Delete extends Action
     )
     {
         $this->_addressRepository = $addressRepository;
+
         parent::__construct($context);
     }
 
