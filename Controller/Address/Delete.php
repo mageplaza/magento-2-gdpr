@@ -60,7 +60,7 @@ class Delete extends Action
         $addressId = $this->getRequest()->getParam("id");
         try {
             $this->_addressRepository->deleteById($addressId);
-            $this->messageManager->addSuccess("Successfully deleted customer address");
+            $this->messageManager->addSuccess(__("Successfully deleted customer address"));
             $this->_redirect('customer/address/');
         } catch (\Exception $e) {
             $this->messageManager->addError($e->getMessage());
