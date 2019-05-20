@@ -93,3 +93,18 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 - [Magento 2 Layered Navigation](https://github.com/mageplaza/magento-2-ajax-layered-navigation)
 - [Magento 2 security extension](https://github.com/mageplaza/magento-2-security)
 
+**Table of contents**
+- [What is GDPR?](#what-is-gdpr---help-your-magento-2-store-protect-customers)
+- [How to install Magento 2 GDPR](#how-to-install-magento-2-gdpr)
+  - [Install via composer](#-install-via-composer-recommend)
+  - [Install ready-to-paste package](#-install-ready-to-paste-package-not-recommend)
+- [GDPR Module Documentations](#gdpr-module-documentations)
+- [GDPR Standard Edition](#gdpr-standard-edition---highlights)
+  - [Delete accounts](#delete-accounts)
+  - [Delete default addresses](#delete-default-addresses)
+- [Magento 2 GDPR Pro Edition - An Innovative Version](#magento-2-gdpr-pro-edition---an-innovative-version)
+  - [Manage billing information (Pro)](#manage-billing-information-pro)
+  - [Cookie restriction (Pro)](#cookie-restriction-pro)
+- [Why do we need the GDPR?](#why-do-we-need-the-gdpr)
+- [Why Mageplaza GDPR is your must-have module](#why-mageplaza-gdpr-is-your-must-have-module)
+
