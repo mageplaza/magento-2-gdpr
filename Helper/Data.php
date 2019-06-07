@@ -13,10 +13,10 @@
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
  *
- * @category    Mageplaza
- * @package     Mageplaza_Gdpr
- * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
- * @license     https://www.mageplaza.com/LICENSE.txt
+ * @category  Mageplaza
+ * @package   Mageplaza_Gdpr
+ * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license   https://www.mageplaza.com/LICENSE.txt
  */
 
 namespace Mageplaza\Gdpr\Helper;
@@ -25,6 +25,7 @@ use Mageplaza\Core\Helper\AbstractData;
 
 /**
  * Class Data
+ *
  * @package Mageplaza\Gdpr\Helper
  */
 class Data extends AbstractData
@@ -32,7 +33,7 @@ class Data extends AbstractData
     const CONFIG_MODULE_PATH = 'gdpr';
 
     /**
-     * @param null $storeId
+     * @param  null $storeId
      * @return bool
      */
     public function allowDeleteAccount($storeId = null)
@@ -41,7 +42,7 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $storeId
+     * @param  null $storeId
      * @return mixed
      */
     public function getDeleteAccountMessage($storeId = null)
@@ -58,7 +59,7 @@ class Data extends AbstractData
     }
 
     /**
-     * @param null $storeId
+     * @param  null $storeId
      * @return bool
      */
     public function allowDeleteDefaultAddress($storeId = null)
@@ -68,6 +69,7 @@ class Data extends AbstractData
 
     /**
      * get Extra Data
+     *
      * @return string
      */
     public function getExtraData()

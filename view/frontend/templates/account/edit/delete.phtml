@@ -23,6 +23,7 @@
 
 /** @var \Mageplaza\Gdpr\Helper\Data $helper */
 $helper = $this->helper(\Mageplaza\Gdpr\Helper\Data::class);
+$message = __('Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.');
 
 if ($helper->allowDeleteAccount()): ?>
     <fieldset class="fieldset info mp-gdpr-delete-account">
@@ -30,11 +31,10 @@ if ($helper->allowDeleteAccount()): ?>
             <span><?php echo __('Delete Account') ?></span>
         </legend><br>
         <div class="gdpr-delete-message">
-            <?php echo $helper->getDeleteAccountMessage() ?>
+            <?php echo $helper->getDeleteAccountMessage() ? $helper->getDeleteAccountMessage() : $message;?>
         </div>
 
         <?php echo $block->getChildHtml('form_additional_info'); ?>
-
         <div class="actions-toolbar">
             <div class="primary">
                 <button type="submit" class="action save primary action-delete" role="delete-account" data-address="" title="<?php echo __('Delete your account') ?>">

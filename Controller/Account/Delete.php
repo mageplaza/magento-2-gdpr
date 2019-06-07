@@ -13,10 +13,10 @@
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
  *
- * @category    Mageplaza
- * @package     Mageplaza_Gdpr
- * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
- * @license     https://www.mageplaza.com/LICENSE.txt
+ * @category  Mageplaza
+ * @package   Mageplaza_Gdpr
+ * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license   https://www.mageplaza.com/LICENSE.txt
  */
 
 namespace Mageplaza\Gdpr\Controller\Account;
@@ -33,6 +33,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class Account
+ *
  * @package Mageplaza\Gdpr\Controller\Delete
  */
 class Delete extends \Magento\Customer\Controller\AbstractAccount
@@ -74,12 +75,13 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
 
     /**
      * Delete constructor.
-     * @param Context $context
+     *
+     * @param Context                     $context
      * @param CustomerRepositoryInterface $customerRepository
-     * @param Session $customerSession
-     * @param Registry $registry
-     * @param LoggerInterface $logger
-     * @param Data $helper
+     * @param Session                     $customerSession
+     * @param Registry                    $registry
+     * @param LoggerInterface             $logger
+     * @param Data                        $helper
      */
     public function __construct(
         Context $context,
@@ -88,8 +90,7 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         Registry $registry,
         LoggerInterface $logger,
         Data $helper
-    )
-    {
+    ) {
         $this->_customerRepository = $customerRepository;
         $this->_customerSession    = $customerSession;
         $this->registry            = $registry;
@@ -117,7 +118,9 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         $customer   = $this->_customerRepository->getById($customerId);
         $checktoken = new \Magento\Framework\DataObject(['flag' => true]);
 
-        /** event anonymise & delete customer before delete account*/
+        /**
+ * event anonymise & delete customer before delete account
+*/
         $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer' => $customer, 'checktoken' => $checktoken]);
 
         if (!$checktoken->getFlag()) {
@@ -128,12 +131,16 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         }
 
         try {
-            /**When perform delete operation, magento check isSecureArea is true/false.*/
+            /**
+* When perform delete operation, magento check isSecureArea is true/false.
+*/
             $this->registry->register('isSecureArea', true, true);
             $this->_customerSession->logout();
             $this->_customerRepository->deleteById($customerId);
 
-            /** event anonymise & delete customer after delete account*/
+            /**
+ * event anonymise & delete customer after delete account
+*/
             $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer' => $customer]);
 
             if ($this->getCookieManager()->getCookie('mage-cache-sessid')) {
@@ -149,7 +156,9 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
             $path = '*/*/';
         }
 
-        /** @var \Magento\Framework\Controller\Result\Redirect $resultRedirect */
+        /**
+ * @var \Magento\Framework\Controller\Result\Redirect $resultRedirect 
+*/
         $resultRedirect = $this->resultRedirectFactory->create();
         $resultRedirect->setPath($path);
 
@@ -160,7 +169,7 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
      * Retrieve cookie manager
      *
      * @deprecated
-     * @return PhpCookieManager
+     * @return     PhpCookieManager
      */
     private function getCookieManager()
     {
@@ -175,7 +184,7 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
      * Retrieve cookie metadata factory
      *
      * @deprecated
-     * @return CookieMetadataFactory
+     * @return     CookieMetadataFactory
      */
     private function getCookieMetadataFactory()
     {
