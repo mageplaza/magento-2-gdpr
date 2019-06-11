@@ -21,11 +21,11 @@
 
 /** @var \Magento\Framework\View\Element\Template $block */
 ?>
-<p><?php echo $block->escapeHtml(__('You will go to our homepage in 5 seconds.')) ?></p>
+<p><?= /** @noEscape */ $block->escapeHtml(__('You will go to our homepage in 5 seconds.')) ?></p>
 <script>
     require(["jquery", "mage/mage"], function ($) {
         $($.mage.redirect(
-            "<?php echo $block->escapeUrl($block->getUrl()) ?>",
+            "<?= /** @noEscape */ $block->escapeUrl($block->getUrl()) ?>",
             "assign",
             5000
         ));

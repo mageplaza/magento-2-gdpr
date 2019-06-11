@@ -13,10 +13,10 @@
  * Do not edit or add to this file if you wish to upgrade this extension to newer
  * version in the future.
  *
- * @category    Mageplaza
- * @package     Mageplaza_Gdpr
- * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
- * @license     https://www.mageplaza.com/LICENSE.txt
+ * @category  Mageplaza
+ * @package   Mageplaza_Gdpr
+ * @copyright Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license   https://www.mageplaza.com/LICENSE.txt
  */
 
 namespace Mageplaza\Gdpr\Controller\Address;
@@ -27,6 +27,7 @@ use Magento\Framework\App\Action\Context;
 
 /**
  * Class Delete
+ *
  * @package Mageplaza\Gdpr\Controller\Address
  */
 class Delete extends Action
@@ -45,8 +46,7 @@ class Delete extends Action
     public function __construct(
         Context $context,
         AddressRepositoryInterface $addressRepository
-    )
-    {
+    ) {
         $this->_addressRepository = $addressRepository;
 
         parent::__construct($context);
@@ -57,10 +57,10 @@ class Delete extends Action
      */
     public function execute()
     {
-        $addressId = $this->getRequest()->getParam("id");
+        $addressId = $this->getRequest()->getParam('id');
         try {
             $this->_addressRepository->deleteById($addressId);
-            $this->messageManager->addSuccess("Successfully deleted customer address");
+            $this->messageManager->addSuccess(__('Successfully deleted customer address'));
             $this->_redirect('customer/address/');
         } catch (\Exception $e) {
             $this->messageManager->addError($e->getMessage());
