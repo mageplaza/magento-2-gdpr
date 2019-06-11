@@ -1,17 +1,17 @@
-# Magento 2 GDPR FREE by Mageplaza (EU)
+# The #1 Magento 2 GDPR FREE (EU)
 
 ## What is GDPR? - Help Your Magento 2 Store Protect Customers
 GDPR stands for General Data Protection Regulation issued by EU, starting on May 25, 2018. This is a new set of data privacy regulations giving an important impact not only on European countries but also on all over the world.
 
 There are many important rules that firms have to obey from June 2018, these rules help protect customers’ data from being stolen and misused (the data can be traded without permission or customers can be overwhelmed by complicated or incomprehensible terms). We recommend that you should go through all terms and conditions [here](https://www.eugdpr.org/); this is especially important if you are expertised in IT or if you are a Magento 2 store owner.
 
-To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about to release an extension called Mageplaza GDPR for Magento 2. This module is to supports online stores to comply those data privacy regulations.
+To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about to release an extension called **Mageplaza GDPR for Magento 2**. This module is to supports online stores to comply those data privacy regulations.
 
 [![Latest Stable Version](https://poser.pugx.org/mageplaza/module-gdpr/v/stable)](https://packagist.org/packages/mageplaza/module-gdpr)
 [![Total Downloads](https://poser.pugx.org/mageplaza/module-gdpr/downloads)](https://packagist.org/packages/mageplaza/module-gdpr)
 
 
-## How to install GDPR for Magento 2
+## How to install Magento 2 GDPR
 
 
 ### ✓ Install via composer (recommend)
@@ -27,11 +27,11 @@ php bin/magento setup:static-content:deploy
 - Download the latest version [here](https://www.mageplaza.com/magento-2-gdpr-extension/)
 -  [Installation guide](https://www.mageplaza.com/install-magento-2-extension/)
 
-## Documentations
+## GDPR Module Documentations
 - [Mageplaza](https://www.mageplaza.com)
 - [User guide](http://docs.mageplaza.com/gdpr/)
 
-## Mageplaza GDPR Standard Edition - Highlights
+## GDPR Standard Edition - Highlights
 
 ### Delete accounts
 ![magento 2 gdpr](https://i.imgur.com/5DYdNyN.png)
@@ -44,9 +44,7 @@ Magento 2 GDPR by Mageplaza supports customers in permanently deleting their acc
 
 Default addresses including Billing and Shipping addresses are seen as private data of a human being according to GDPR. Hence, allowing buyers to delete these information is an action which proves that you are making a strong commitment to protect your users. With Magento 2 GDPR, this is easily performed by your customers with only few easy and clear steps.
 
-
-
-## Mageplaza GDPR Pro Edition - An Innovative Version
+## Magento 2 GDPR Pro Edition - An Innovative Version
 
 ### Manage billing information (Pro)
 Billing information including data featured in customers’ orders, invoices, credit memos and shipments is seriously important which needs protecting. Your online shoppers, for sure, have rights to manage it themselves, and also, have rights to become anonymous. To support online stores in solving this issue, Mageplaza GDPF Pro version allows customers to anonymize their private information such as names, phone number or addresses by replacing these data by a random string.
@@ -72,10 +70,41 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 
 
 
-### People also search for
-- Magento 2 GDPR module
-- GDPR for Magento 2
-- GDPR extension for Magento 2
-- Magento 2 GDPR extension
-- Magento 2 GDPR Free
-- GDPR module for Magento 2
+**Peoples also search:**
+- gdpr magento 2
+- magento 2 gdpr extension
+- magento 2 gdpr extension free
+- gdpr magento 2 extension
+- magento 2 gdpr module
+- magento 2 rgpd
+- magento 2 gdpr compliance
+- gdpr compliance for magento 2
+- magento 2 gdpr cookies extension
+- magento 2 privacy policy
+
+
+**Other free extension on Github**
+- [Magento 2 Google reCaptcha](https://github.com/mageplaza/magento-2-google-recaptcha)
+- [Magento 2 SMTP](https://github.com/mageplaza/magento-2-smtp)
+- [Magento 2 popup extension](https://github.com/mageplaza/magento-2-better-popup)
+- [Magento 2 Reports extension](https://github.com/mageplaza/magento-2-reports)
+- [Magento 2 social login](https://github.com/mageplaza/magento-2-social-login)
+- [Magento 2 blog](https://github.com/mageplaza/magento-2-blog)
+- [Magento 2 Layered Navigation](https://github.com/mageplaza/magento-2-ajax-layered-navigation)
+- [Magento 2 security extension](https://github.com/mageplaza/magento-2-security)
+
+**Table of contents**
+- [What is GDPR?](#what-is-gdpr---help-your-magento-2-store-protect-customers)
+- [How to install Magento 2 GDPR](#how-to-install-magento-2-gdpr)
+  - [Install via composer](#-install-via-composer-recommend)
+  - [Install ready-to-paste package](#-install-ready-to-paste-package-not-recommend)
+- [GDPR Module Documentations](#gdpr-module-documentations)
+- [GDPR Standard Edition](#gdpr-standard-edition---highlights)
+  - [Delete accounts](#delete-accounts)
+  - [Delete default addresses](#delete-default-addresses)
+- [Magento 2 GDPR Pro Edition - An Innovative Version](#magento-2-gdpr-pro-edition---an-innovative-version)
+  - [Manage billing information (Pro)](#manage-billing-information-pro)
+  - [Cookie restriction (Pro)](#cookie-restriction-pro)
+- [Why do we need the GDPR?](#why-do-we-need-the-gdpr)
+- [Why Mageplaza GDPR is your must-have module](#why-mageplaza-gdpr-is-your-must-have-module)
+
