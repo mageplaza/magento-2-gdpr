@@ -21,10 +21,18 @@
 
 namespace Mageplaza\Gdpr\Controller\Account;
 
+use Exception;
 use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Controller\AbstractAccount;
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\Result\Redirect;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\DataObject;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Registry;
 use Magento\Framework\Stdlib\Cookie\CookieMetadataFactory;
 use Magento\Framework\Stdlib\Cookie\PhpCookieManager;
@@ -36,7 +44,7 @@ use Psr\Log\LoggerInterface;
  *
  * @package Mageplaza\Gdpr\Controller\Delete
  */
-class Delete extends \Magento\Customer\Controller\AbstractAccount
+class Delete extends AbstractAccount
 {
     /**
      * @var CustomerRepositoryInterface
@@ -49,7 +57,7 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
     protected $_customerSession;
 
     /**
-     * @var \Magento\Framework\Registry
+     * @var Registry
      */
     protected $registry;
 
@@ -59,7 +67,7 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
     protected $logger;
 
     /**
-     * @var \Mageplaza\Gdpr\Helper\Data
+     * @var Data
      */
     protected $_helper;
 
@@ -76,12 +84,12 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
     /**
      * Delete constructor.
      *
-     * @param Context                     $context
+     * @param Context $context
      * @param CustomerRepositoryInterface $customerRepository
-     * @param Session                     $customerSession
-     * @param Registry                    $registry
-     * @param LoggerInterface             $logger
-     * @param Data                        $helper
+     * @param Session $customerSession
+     * @param Registry $registry
+     * @param LoggerInterface $logger
+     * @param Data $helper
      */
     public function __construct(
         Context $context,
@@ -92,18 +100,18 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         Data $helper
     ) {
         $this->_customerRepository = $customerRepository;
-        $this->_customerSession    = $customerSession;
-        $this->registry            = $registry;
-        $this->logger              = $logger;
-        $this->_helper             = $helper;
+        $this->_customerSession = $customerSession;
+        $this->registry = $registry;
+        $this->logger = $logger;
+        $this->_helper = $helper;
 
         parent::__construct($context);
     }
 
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|\Magento\Framework\Controller\ResultInterface|void
-     * @throws \Magento\Framework\Exception\LocalizedException
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @return ResponseInterface|Redirect|ResultInterface|void
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
     public function execute()
     {
@@ -115,13 +123,11 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
         }
 
         $customerId = $this->_customerSession->getCustomerId();
-        $customer   = $this->_customerRepository->getById($customerId);
-        $checktoken = new \Magento\Framework\DataObject(['flag' => true]);
+        $customer = $this->_customerRepository->getById($customerId);
+        $checktoken = new DataObject(['flag' => true]);
 
-        /**
- * event anonymise & delete customer before delete account
-*/
-        $this->_eventManager->dispatch('anonymise_account_before_delete', ['customer' => $customer, 'checktoken' => $checktoken]);
+        /** event anonymise & delete customer before delete account */
+        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checktoken'));
 
         if (!$checktoken->getFlag()) {
             $this->registry->register('use_page_cache_plugin', false);
@@ -130,17 +136,16 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
             return;
         }
 
+        /** @var Redirect $resultRedirect */
+        $resultRedirect = $this->resultRedirectFactory->create();
+
         try {
-            /**
-* When perform delete operation, magento check isSecureArea is true/false.
-*/
+            /** When perform delete operation, magento check isSecureArea is true/false. */
             $this->registry->register('isSecureArea', true, true);
             $this->_customerSession->logout();
             $this->_customerRepository->deleteById($customerId);
 
-            /**
- * event anonymise & delete customer after delete account
-*/
+            /** event anonymise & delete customer after delete account */
             $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer' => $customer]);
 
             if ($this->getCookieManager()->getCookie('mage-cache-sessid')) {
@@ -149,18 +154,12 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
                 $this->getCookieManager()->deleteCookie('mage-cache-sessid', $metadata);
             }
 
-            $path = '*/*/deleteSuccess';
-        } catch (\Exception $e) {
+            $resultRedirect->setPath('*/*/deleteSuccess');
+        } catch (Exception $e) {
             $this->logger->critical($e->getMessage());
             $this->messageManager->addErrorMessage(__('Something wrong while deleting your account. Please contact the store owner.'));
-            $path = '*/*/';
+            $resultRedirect->setPath('*/*/');
         }
-
-        /**
- * @var \Magento\Framework\Controller\Result\Redirect $resultRedirect 
-*/
-        $resultRedirect = $this->resultRedirectFactory->create();
-        $resultRedirect->setPath($path);
 
         return $resultRedirect;
     }
@@ -168,8 +167,8 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
     /**
      * Retrieve cookie manager
      *
-     * @deprecated
      * @return     PhpCookieManager
+     * @deprecated
      */
     private function getCookieManager()
     {
@@ -183,8 +182,8 @@ class Delete extends \Magento\Customer\Controller\AbstractAccount
     /**
      * Retrieve cookie metadata factory
      *
-     * @deprecated
      * @return     CookieMetadataFactory
+     * @deprecated
      */
     private function getCookieMetadataFactory()
     {

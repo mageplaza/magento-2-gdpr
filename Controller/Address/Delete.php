@@ -40,7 +40,7 @@ class Delete extends Action
     /**
      * Delete constructor.
      *
-     * @param Context                                          $context
+     * @param Context $context
      * @param \Magento\Customer\Api\AddressRepositoryInterface $addressRepository
      */
     public function __construct(
@@ -57,10 +57,10 @@ class Delete extends Action
      */
     public function execute()
     {
-        $addressId = $this->getRequest()->getParam("id");
+        $addressId = $this->getRequest()->getParam('id');
         try {
             $this->_addressRepository->deleteById($addressId);
-            $this->messageManager->addSuccess(__("Successfully deleted customer address"));
+            $this->messageManager->addSuccess(__('Successfully deleted customer address'));
             $this->_redirect('customer/address/');
         } catch (\Exception $e) {
             $this->messageManager->addError($e->getMessage());

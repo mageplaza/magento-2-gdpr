@@ -33,7 +33,8 @@ class Data extends AbstractData
     const CONFIG_MODULE_PATH = 'gdpr';
 
     /**
-     * @param  null $storeId
+     * @param null $storeId
+     *
      * @return bool
      */
     public function allowDeleteAccount($storeId = null)
@@ -42,7 +43,8 @@ class Data extends AbstractData
     }
 
     /**
-     * @param  null $storeId
+     * @param null $storeId
+     *
      * @return mixed
      */
     public function getDeleteAccountMessage($storeId = null)
@@ -59,7 +61,8 @@ class Data extends AbstractData
     }
 
     /**
-     * @param  null $storeId
+     * @param null $storeId
+     *
      * @return bool
      */
     public function allowDeleteDefaultAddress($storeId = null)

@@ -25,20 +25,20 @@
 $helper = $this->helper(\Mageplaza\Gdpr\Helper\Data::class);
 $message = __('Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.');
 
-if ($helper->allowDeleteAccount()): ?>
+if ($helper->allowDeleteAccount()) : ?>
     <fieldset class="fieldset info mp-gdpr-delete-account">
         <legend class="legend">
-            <span><?php echo __('Delete Account') ?></span>
+            <span><?= /** @noEscape */ __('Delete Account') ?></span>
         </legend><br>
         <div class="gdpr-delete-message">
-            <?php echo $helper->getDeleteAccountMessage() ? $helper->getDeleteAccountMessage() : $message;?>
+            <?= /** @noEscape */ $helper->getDeleteAccountMessage() ? $helper->getDeleteAccountMessage() : $message?>
         </div>
 
-        <?php echo $block->getChildHtml('form_additional_info'); ?>
+        <?= /** @noEscape */ $block->getChildHtml('form_additional_info') ?>
         <div class="actions-toolbar">
             <div class="primary">
-                <button type="submit" class="action save primary action-delete" role="delete-account" data-address="" title="<?php echo __('Delete your account') ?>">
-                    <span><?php echo __('Delete your account') ?></span>
+                <button type="submit" class="action save primary action-delete" role="delete-account" data-address="" title="<?= /** @noEscape */ __('Delete your account') ?>">
+                    <span><?= /** @noEscape */ __('Delete your account') ?></span>
                 </button>
             </div>
         </div>
@@ -48,9 +48,9 @@ if ($helper->allowDeleteAccount()): ?>
         ".page-main": {
             "address": {
                 "deleteAddress": "button[role='delete-account']",
-                "deleteUrlPrefix": "<?php echo $block->escapeUrl(rtrim($helper->getDeleteAccountUrl(), '/')) ?>",
-                "deleteConfirmMessage": "<?php echo __('Are you sure you want to delete your account?') ?>",
-                "extraData": <?php echo $helper->getExtraData(); ?>
+                "deleteUrlPrefix": "<?= /** @noEscape */ $block->escapeUrl(rtrim($helper->getDeleteAccountUrl(), '/')) ?>",
+                "deleteConfirmMessage": "<?= /** @noEscape */ __('Are you sure you want to delete your account?') ?>",
+                "extraData": <?= /** @noEscape */ $helper->getExtraData() ?>
             }
         }
     }
