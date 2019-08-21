@@ -19,17 +19,17 @@
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
 if ($block->allowDeleteAccount()) : ?>
-    <div class="mp-gdpr-delete-customer-account col-mp mp-12">
+    <div class="mp-gdpr-delete-customer-account col-mp mp-12 mp-xs-12">
        <fieldset class="fieldset info mp-gdpr-delete-account">
            <legend class="legend">
                <span><?= /** @noEscape */ __('Delete Account') ?></span>
            </legend><br>
-           <div class="gdpr-delete-message">
+           <div class="gdpr-delete-message col-mp mp-12 mp-xs-12">
                <?= /** @noEscape */ __($block->getDeleteAccountMessage())?>
            </div>
 
            <?= /** @noEscape */ $block->getChildHtml('form_additional_info') ?>
-           <div class="actions-toolbar">
+           <div class="actions-toolbar col-mp mp-12 mp-xs-12">
                <div class="primary">
                    <button type="submit" class="action save primary action-delete" role="delete-account" data-address="" title="<?= /** @noEscape */ __('Delete your account') ?>">
                        <span><?= /** @noEscape */ __('Delete your account') ?></span>
