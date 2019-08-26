@@ -21,9 +21,12 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Mageplaza_Core::css/grid-mageplaza.css"/>
+    </head>
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template" name="gdpr_customer_delete_info" after="-" template="Mageplaza_Gdpr::account/edit/delete.phtml" ifconfig="gdpr/general/enabled"/>
+            <block class="Mageplaza\Gdpr\Block\Address\Account" name="gdpr_customer_delete_info" after="-" template="Mageplaza_Gdpr::account/edit/delete.phtml" ifconfig="gdpr/general/enabled"/>
         </referenceContainer>
     </body>
 </page>

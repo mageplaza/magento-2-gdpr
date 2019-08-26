@@ -22,6 +22,8 @@
 namespace Mageplaza\Gdpr\Helper;
 
 use Mageplaza\Core\Helper\AbstractData;
+use Magento\Framework\View\Design\Theme\ThemeProviderInterface;
+use Magento\Framework\View\DesignInterface;
 
 /**
  * Class Data
@@ -78,5 +80,21 @@ class Data extends AbstractData
     public function getExtraData()
     {
         return $this->jsonEncode([]);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentTheme()
+    {
+        $themeId = $this->getConfigValue(DesignInterface::XML_PATH_THEME_ID);
+        $_themeProvider = $this->objectManager->create(ThemeProviderInterface::class);
+
+        /**
+         * @var $theme ThemeProviderInterface
+         */
+        $theme = $_themeProvider->getThemeById($themeId);
+
+        return $theme->getCode();
     }
 }
