@@ -36,10 +36,10 @@ if ($helper->allowDeleteDefaultAddress()) : ?>
 
             <?php if ($defaultBillingAddressId) : ?>
 
-                <?php if($themeCode === 'Mgs/claue') : ?>
+                <?php if ($themeCode === 'Mgs/claue') : ?>
                     var boxBillingActions = $('.block-addresses-default .box-address-billing .box-content').find('div');
                     var deleteBillingEl   = '<a class="action btn btn-xs btn-secondary delete mp-gdpr-delete" href="#" role="delete-address" data-address="<?= /** @noEscape */ $defaultBillingAddressId ?>"><span><?= /** @noEscape */ __('Delete Address') ?></span></a>';
-                <?php else:?>
+                <?php else :?>
                     var deleteBillingEl   = '<a class="action delete mp-gdpr-delete" href="#" role="delete-address" data-address="<?= /** @noEscape */ $defaultBillingAddressId ?>"><span><?= /** @noEscape */ __('Delete Address') ?></span></a>';
                     var boxBillingActions = $('.block-addresses-default .box-address-billing .box-actions');
                 <?php endif;?>
@@ -51,10 +51,10 @@ if ($helper->allowDeleteDefaultAddress()) : ?>
 
             <?php if ($defaultShippingAddressId) : ?>
 
-                <?php if($themeCode === 'Mgs/claue') : ?>
+                <?php if ($themeCode === 'Mgs/claue') : ?>
                     var deleteShippingEl = '<a class="action btn btn-xs btn-secondary delete mp-gdpr-delete" href="#" role="delete-address" data-address="<?= /** @noEscape */ $defaultShippingAddressId ?>"><span><?= /** @noEscape */ __('Delete Address') ?></span></a>';
                     var boxShippingActions = $('.block-addresses-default .box-address-shipping .box-content');
-                <?php else:?>
+                <?php else :?>
                     var deleteShippingEl = '<a class="action delete mp-gdpr-delete" href="#" role="delete-address" data-address="<?= /** @noEscape */ $defaultShippingAddressId ?>"><span><?= /** @noEscape */ __('Delete Address') ?></span></a>';
                     var boxShippingActions = $('.block-addresses-default .box-address-shipping .box-actions');
                 <?php endif;?>

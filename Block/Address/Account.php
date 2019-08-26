@@ -21,7 +21,6 @@
 
 namespace Mageplaza\Gdpr\Block\Address;
 
-
 use Magento\Framework\View\Element\Template;
 use Mageplaza\Gdpr\Helper\Data as HelperData;
 
@@ -45,8 +44,8 @@ class Account extends Template
     public function __construct(
         Template\Context $context,
         HelperData $helperData,
-        array $data = [])
-    {
+        array $data = []
+    ) {
         $this->_helperData = $helperData;
         parent::__construct($context, $data);
     }
@@ -57,7 +56,7 @@ class Account extends Template
     public function getDeleteAccountMessage()
     {
         $deleteAccountMessage = $this->_helperData->getDeleteAccountMessage();
-        $defaultMassage = 'Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.';
+        $defaultMassage = __('Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.');
 
         return $deleteAccountMessage ?: $defaultMassage;
     }
@@ -75,7 +74,7 @@ class Account extends Template
      */
     public function getExtraData()
     {
-        return $this->_helperData->jsonEncode([]);
+        return HelperData::jsonEncode([]);
     }
 
     /**

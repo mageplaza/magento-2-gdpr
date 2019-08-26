@@ -21,9 +21,12 @@
 
 namespace Mageplaza\Gdpr\Controller\Address;
 
+use Exception;
 use Magento\Customer\Api\AddressRepositoryInterface;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\ResultInterface;
 
 /**
  * Class Delete
@@ -33,7 +36,7 @@ use Magento\Framework\App\Action\Context;
 class Delete extends Action
 {
     /**
-     * @var \Magento\Customer\Api\AddressRepositoryInterface
+     * @var AddressRepositoryInterface
      */
     protected $_addressRepository;
 
@@ -41,7 +44,7 @@ class Delete extends Action
      * Delete constructor.
      *
      * @param Context $context
-     * @param \Magento\Customer\Api\AddressRepositoryInterface $addressRepository
+     * @param AddressRepositoryInterface $addressRepository
      */
     public function __construct(
         Context $context,
@@ -53,7 +56,7 @@ class Delete extends Action
     }
 
     /**
-     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     * @return ResponseInterface|ResultInterface|void
      */
     public function execute()
     {
@@ -62,7 +65,7 @@ class Delete extends Action
             $this->_addressRepository->deleteById($addressId);
             $this->messageManager->addSuccess(__('Successfully deleted customer address'));
             $this->_redirect('customer/address/');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->messageManager->addError($e->getMessage());
             $this->_redirect('customer/address/');
         }
