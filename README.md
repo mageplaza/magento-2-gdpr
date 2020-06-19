@@ -1,4 +1,4 @@
-# The #1 Magento 2 GDPR FREE (EU)
+# The Most Popular Magento 2 GDPR FREE (EU)
 
 ## What is GDPR? - Help Your Magento 2 Store Protect Customers
 GDPR stands for General Data Protection Regulation issued by EU, starting on May 25, 2018. This is a new set of data privacy regulations giving an important impact not only on European countries but also on all over the world.
@@ -9,6 +9,13 @@ To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about
 
 [![Latest Stable Version](https://poser.pugx.org/mageplaza/module-gdpr/v/stable)](https://packagist.org/packages/mageplaza/module-gdpr)
 [![Total Downloads](https://poser.pugx.org/mageplaza/module-gdpr/downloads)](https://packagist.org/packages/mageplaza/module-gdpr)
+
+## Highlight Features
+- Remove customers’ accounts
+- Delete customer’s addresses
+- Manage billing documents (Pro): Order, Invoice, Shipment, Credit Memo
+- GDPR Cookie restriction (Pro)
+- Auto-delete customer account(Pro)
 
 
 ## How to install Magento 2 GDPR
