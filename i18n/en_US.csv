@@ -9,8 +9,8 @@
 GDPR,GDPR
 "General Configuration","General Configuration"
 Enable,Enable
-"Allow Delete Customer Account","Allow Delete Customer Account"
-"Delete message","Delete message"
+"Allow Deleting Customer Account","Allow Deleting Customer Account"
+"Message of Deleting","Message of Deleting"
 "The message will be shown on Delete Account area. HTML code is allowed.","The message will be shown on Delete Account area. HTML code is allowed."
-"Allow Delete Default Address","Allow Delete Default Address"
+"Allow Deleting Default Address","Allow Deleting Default Address"
 "Your account has been deleted.","Your account has been deleted."

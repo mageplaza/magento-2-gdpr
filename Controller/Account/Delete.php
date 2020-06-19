@@ -100,10 +100,10 @@ class Delete extends AbstractAccount
         Data $helper
     ) {
         $this->_customerRepository = $customerRepository;
-        $this->_customerSession = $customerSession;
-        $this->registry = $registry;
-        $this->logger = $logger;
-        $this->_helper = $helper;
+        $this->_customerSession    = $customerSession;
+        $this->registry            = $registry;
+        $this->logger              = $logger;
+        $this->_helper             = $helper;
 
         parent::__construct($context);
     }
@@ -123,7 +123,7 @@ class Delete extends AbstractAccount
         }
 
         $customerId = $this->_customerSession->getCustomerId();
-        $customer = $this->_customerRepository->getById($customerId);
+        $customer   = $this->_customerRepository->getById($customerId);
         $checktoken = new DataObject(['flag' => true]);
 
         /** event anonymise & delete customer before delete account */
