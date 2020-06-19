@@ -37,6 +37,7 @@ class Account extends Template
 
     /**
      * Account constructor.
+     *
      * @param Template\Context $context
      * @param HelperData $helperData
      * @param array $data
@@ -56,7 +57,7 @@ class Account extends Template
     public function getDeleteAccountMessage()
     {
         $deleteAccountMessage = $this->_helperData->getDeleteAccountMessage();
-        $defaultMassage = __('Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.');
+        $defaultMassage       = __('Your account will be permanently deleted. Once you delete your account, there is no going back. Please be certain.');
 
         return $deleteAccountMessage ?: $defaultMassage;
     }

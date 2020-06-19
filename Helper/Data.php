@@ -21,9 +21,9 @@
 
 namespace Mageplaza\Gdpr\Helper;
 
-use Mageplaza\Core\Helper\AbstractData;
 use Magento\Framework\View\Design\Theme\ThemeProviderInterface;
 use Magento\Framework\View\DesignInterface;
+use Mageplaza\Core\Helper\AbstractData;
 
 /**
  * Class Data
@@ -87,7 +87,7 @@ class Data extends AbstractData
      */
     public function getCurrentTheme()
     {
-        $themeId = $this->getConfigValue(DesignInterface::XML_PATH_THEME_ID);
+        $themeId        = $this->getConfigValue(DesignInterface::XML_PATH_THEME_ID);
         $_themeProvider = $this->objectManager->create(ThemeProviderInterface::class);
 
         /**
