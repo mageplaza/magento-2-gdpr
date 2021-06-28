@@ -10,7 +10,7 @@ To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about
 [![Latest Stable Version](https://poser.pugx.org/mageplaza/module-gdpr/v/stable)](https://packagist.org/packages/mageplaza/module-gdpr)
 [![Total Downloads](https://poser.pugx.org/mageplaza/module-gdpr/downloads)](https://packagist.org/packages/mageplaza/module-gdpr)
 
-**IMPORTANT NOTE:** This version of Mageplaza GDPR extension on Github is free as a contribution to the Magento community from Mageplaza. This package does not include the technical support. Should you need technical support for this extension, you will have to buy a license from Mageplaza. [Click here to buy](https://www.mageplaza.com/magento-2-gdpr-extension/).
+**IMPORTANT NOTE:** This version of [Magento 2 GDPR extension](https://marketplace.magento.com/mageplaza-module-gdpr.html) on Github is free as a contribution to the Magento community from Mageplaza. This package does not include the technical support. Should you need technical support for this extension, you will have to buy a license from Mageplaza. [Click here to buy](https://www.mageplaza.com/magento-2-gdpr-extension/).
 
 ## Highlight Features
 - Remove customers’ accounts
@@ -40,7 +40,7 @@ php bin/magento setup:static-content:deploy
 - [Mageplaza](https://www.mageplaza.com)
 - [User guide](http://docs.mageplaza.com/gdpr/)
 
-## GDPR Standard Edition - Highlights
+## Magento 2 GDPR Standard Edition - Highlights
 
 ### Delete accounts
 ![magento 2 gdpr](https://i.imgur.com/5DYdNyN.png)
@@ -101,6 +101,16 @@ So, it’s high time to concern about your Magento 2 store and prepare for it no
 - [Magento 2 blog](https://github.com/mageplaza/magento-2-blog)
 - [Magento 2 Layered Navigation](https://github.com/mageplaza/magento-2-ajax-layered-navigation)
 - [Magento 2 security extension](https://github.com/mageplaza/magento-2-security)
+
+**Our module on Marketplace:**
+- [Magento 2 One Page Checkout](https://marketplace.magento.com/mageplaza-magento-2-one-step-checkout-extension.html)
+- [Magento 2 Layered Navigation](https://marketplace.magento.com/mageplaza-layered-navigation-m2.html)
+- [Magento 2 PDF Invoice](https://marketplace.magento.com/mageplaza-module-pdf-invoice.html)
+- [Magento 2 Auto Related Products](https://marketplace.magento.com/mageplaza-module-automatic-related-products.html)
+- [Magento 2 SEO extension](https://marketplace.magento.com/mageplaza-magento-2-seo-extension.html)
+- [Magento 2 Gift Card extension](https://marketplace.magento.com/mageplaza-module-gift-card.html)
+- [Magento 2 Reward Points](https://marketplace.magento.com/mageplaza-module-reward-points.html)
+- [Magento 2 Affiliate extension](https://marketplace.magento.com/mageplaza-module-affiliate.html)
 
 **Table of contents**
 - [What is GDPR?](#what-is-gdpr---help-your-magento-2-store-protect-customers)
