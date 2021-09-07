@@ -10,7 +10,7 @@ To help Magento 2 stores which are directly affected by GDPR, Mageplaza is about
 [![Latest Stable Version](https://poser.pugx.org/mageplaza/module-gdpr/v/stable)](https://packagist.org/packages/mageplaza/module-gdpr)
 [![Total Downloads](https://poser.pugx.org/mageplaza/module-gdpr/downloads)](https://packagist.org/packages/mageplaza/module-gdpr)
 
-**IMPORTANT NOTE:** This version of [Magento 2 GDPR extension](https://marketplace.magento.com/mageplaza-module-gdpr.html) on Github is free as a contribution to the Magento community from Mageplaza. This package does not include the technical support. Should you need technical support for this extension, you will have to buy a license from Mageplaza. [Click here to buy](https://www.mageplaza.com/magento-2-gdpr-extension/).
+**IMPORTANT NOTE: This version of [Magento 2 GDPR extension](https://marketplace.magento.com/mageplaza-module-gdpr.html) on Github is free as a contribution to the Magento community from Mageplaza. This package does not include the technical support. Should you need technical support for this extension, you will have to buy a license from Mageplaza. [Click here to buy](https://www.mageplaza.com/magento-2-gdpr-extension/).**
 
 ## Highlight Features
 - Remove customers’ accounts
