@@ -24,10 +24,13 @@ declare(strict_types=1);
 namespace Mageplaza\Gdpr\GraphQl\Model\Resolver\Configs;
 
 use Magento\Framework\GraphQl\Config\Element\Field;
+use Magento\Framework\GraphQl\Exception\GraphQlAuthorizationException;
 use Magento\Framework\GraphQl\Exception\GraphQlInputException;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
+use Magento\GraphQl\Model\Query\ContextInterface;
 use Mageplaza\Gdpr\Helper\Data;
+use Mageplaza\Gdpr\Model\Api\Data\Config\GeneralConfig;
 
 /**
  * Class Get
@@ -41,14 +44,22 @@ class Get implements ResolverInterface
     protected $helperData;
 
     /**
+     * @var GeneralConfig
+     */
+    protected $generalConfig;
+
+    /**
      * Get constructor.
      *
      * @param Data $helperData
      */
     public function __construct(
-        Data $helperData
-    ) {
-        $this->helperData       = $helperData;
+        Data $helperData,
+        GeneralConfig $generalConfig
+    )
+    {
+        $this->helperData = $helperData;
+        $this->generalConfig = $generalConfig;
     }
 
     /**
@@ -56,18 +67,36 @@ class Get implements ResolverInterface
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
-        $store   = $context->getExtensionAttributes()->getStore();
+        $store = $context->getExtensionAttributes()->getStore();
         $storeId = $store->getId();
+
+        /** @var ContextInterface $context */
+        if (false === $context->getExtensionAttributes()->getIsCustomer()) {
+            throw new GraphQlAuthorizationException(__('The current customer isn\'t authorized.'));
+        }
 
         if (!$this->helperData->isEnabled($storeId)) {
             throw new GraphQlInputException(__('Gdpr is disabled.'));
         }
 
-        $storeConfigs = $this->helperData->getConfigValue(Data::CONFIG_MODULE_PATH, $storeId);
-        $storeConfigs['general']['allowDeleteCustomer']= $storeConfigs['general']['allow_delete_customer'];
-        $storeConfigs['general']['message']= $storeConfigs['general']['delete_customer_message'];
-        $storeConfigs['general']['allowDeleteDefaultAddress']= $storeConfigs['general']['allow_delete_default_address'];
+        $data = $this->getGeneralConfig($storeId);
 
-        return $storeConfigs;
+        return $this->generalConfig->addData($data);
+    }
+
+    /**
+     * @param $storeId
+     * @return array
+     */
+    public function getGeneralConfig($storeId)
+    {
+        return [
+            'general' => [
+                'enabled' => $this->helperData->getConfigGeneral('enabled', $storeId),
+                'allow_delete_customer' => $this->helperData->getConfigGeneral('allow_delete_customer', $storeId),
+                'delete_customer_message' => $this->helperData->getConfigGeneral('delete_customer_message', $storeId),
+                'allow_delete_default_address' => $this->helperData->getConfigGeneral('allow_delete_default_address', $storeId),
+            ]
+        ];
     }
 }
