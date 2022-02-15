@@ -22,6 +22,7 @@
 namespace Mageplaza\Gdpr\Model\Api\Data\Config;
 
 use Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface;
+use Mageplaza\Gdpr\Helper\Data;
 
 /**
  * Class GeneralConfig
@@ -30,66 +31,45 @@ use Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface;
 class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConfigInterface
 {
     /**
-     * {@inheritdoc}
+     * @var Data
+     */
+    private $helperData;
+
+    public function __construct(
+        Data $helperData
+    ) {
+        $this->helperData = $helperData;
+    }
+
+    /**
+     * @return bool
      */
     public function getEnable()
     {
-        return $this->getData(self::ENABLE);
+        return (bool) $this->helperData->getConfigGeneral(self::ENABLE);
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function setEnable($value)
-    {
-        return $this->setData(self::ENABLE, $value);
-    }
-
-    /**
-     * {@inheritdoc}
+     * @return bool
      */
     public function getAllowDeleteCustomer()
     {
-        return $this->getData(self::ALLOW_DELETE_CUSTOMER);
+        return (bool) $this->helperData->getConfigGeneral(self::ALLOW_DELETE_CUSTOMER);
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function setAllowDeleteCustomer($value)
-    {
-        return $this->setData(self::ALLOW_DELETE_CUSTOMER, $value);
-    }
-
-    /**
-     * {@inheritdoc}
+     * @return array|mixed|string
      */
     public function getDeleteCustomerMessage()
     {
-        return $this->getData(self::DELETE_CUSTOMER_MESSAGE);
+        return $this->helperData->getConfigGeneral(self::DELETE_CUSTOMER_MESSAGE);
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function setDeleteCustomerMessage($value)
-    {
-        return $this->setData(self::DELETE_CUSTOMER_MESSAGE, $value);
-    }
-
-    /**
-     * {@inheritdoc}
+     * @return bool
      */
     public function getAllowDeleteDefaultAddress()
     {
-        return $this->getData(self::ALLOW_DELETE_DEFAULT_ADDRESS);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setAllowDeleteDefaultAddress($value)
-    {
-        return $this->setData(self::ALLOW_DELETE_DEFAULT_ADDRESS, $value);
+        return (bool) $this->helperData->getConfigGeneral(self::ALLOW_DELETE_DEFAULT_ADDRESS);
     }
 }

@@ -46,21 +46,9 @@ interface GeneralConfigInterface extends ExtensibleDataInterface
     public function getEnable();
 
     /**
-     * @param $value
-     * @return $this
-     */
-    public function setEnable($value);
-
-    /**
      * @return int
      */
     public function getAllowDeleteCustomer();
-
-    /**
-     * @param $value
-     * @return $this
-     */
-    public function setAllowDeleteCustomer($value);
 
     /**
      * @return string
@@ -68,19 +56,7 @@ interface GeneralConfigInterface extends ExtensibleDataInterface
     public function getDeleteCustomerMessage();
 
     /**
-     * @param $value
-     * @return $this
-     */
-    public function setDeleteCustomerMessage($value);
-
-    /**
      * @return int
      */
     public function getAllowDeleteDefaultAddress();
-
-    /**
-     * @param $value
-     * @return $this
-     */
-    public function setAllowDeleteDefaultAddress($value);
 }
