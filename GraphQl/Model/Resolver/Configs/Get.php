@@ -49,16 +49,14 @@ class Get implements ResolverInterface
     protected $generalConfig;
 
     /**
-     * Get constructor.
-     *
      * @param Data $helperData
+     * @param GeneralConfig $generalConfig
      */
     public function __construct(
         Data $helperData,
         GeneralConfig $generalConfig
-    )
-    {
-        $this->helperData = $helperData;
+    ) {
+        $this->helperData    = $helperData;
         $this->generalConfig = $generalConfig;
     }
 
@@ -67,7 +65,7 @@ class Get implements ResolverInterface
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
-        $store = $context->getExtensionAttributes()->getStore();
+        $store   = $context->getExtensionAttributes()->getStore();
         $storeId = $store->getId();
 
         /** @var ContextInterface $context */
@@ -86,16 +84,20 @@ class Get implements ResolverInterface
 
     /**
      * @param $storeId
+     *
      * @return array
      */
     public function getGeneralConfig($storeId)
     {
         return [
             'general' => [
-                'enabled' => $this->helperData->getConfigGeneral('enabled', $storeId),
-                'allow_delete_customer' => $this->helperData->getConfigGeneral('allow_delete_customer', $storeId),
-                'delete_customer_message' => $this->helperData->getConfigGeneral('delete_customer_message', $storeId),
-                'allow_delete_default_address' => $this->helperData->getConfigGeneral('allow_delete_default_address', $storeId),
+                'enabled'                      => $this->helperData->getConfigGeneral('enabled', $storeId),
+                'allow_delete_customer'        => $this->helperData
+                    ->getConfigGeneral('allow_delete_customer', $storeId),
+                'delete_customer_message'      => $this->helperData
+                    ->getConfigGeneral('delete_customer_message', $storeId),
+                'allow_delete_default_address' => $this->helperData
+                    ->getConfigGeneral('allow_delete_default_address', $storeId),
             ]
         ];
     }

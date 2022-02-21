@@ -60,7 +60,7 @@ class CreateDeleteDefaultAddressRequest implements ResolverInterface
         AddressRepositoryInterface $addressRepository
 
     ) {
-        $this->helperData  = $helperData;
+        $this->helperData         = $helperData;
         $this->_addressRepository = $addressRepository;
     }
 

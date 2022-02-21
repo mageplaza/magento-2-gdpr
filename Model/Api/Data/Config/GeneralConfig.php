@@ -35,6 +35,9 @@ class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConf
      */
     private $helperData;
 
+    /**
+     * @param Data $helperData
+     */
     public function __construct(
         Data $helperData
     ) {

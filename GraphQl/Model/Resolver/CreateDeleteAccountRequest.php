@@ -84,11 +84,11 @@ class CreateDeleteAccountRequest implements ResolverInterface
         EventManagerInterface $eventManager,
         Registry $registry
     ) {
-        $this->helperData   = $helperData;
-        $this->_getCustomer  = $getCustomer;
-        $this->_customerRepository  = $customerRepository;
-        $this->_eventManager  = $eventManager;
-        $this->registry        = $registry;
+        $this->helperData          = $helperData;
+        $this->_getCustomer        = $getCustomer;
+        $this->_customerRepository = $customerRepository;
+        $this->_eventManager       = $eventManager;
+        $this->registry            = $registry;
     }
 
     /**
@@ -119,9 +119,9 @@ class CreateDeleteAccountRequest implements ResolverInterface
 
         if (!$checktoken->getFlag()) {
             $message = __('Flag not exit');
+
             return $this->returnResult($message);
         }
-
 
         try {
             $this->registry->register('isSecureArea', true, true);
@@ -139,7 +139,8 @@ class CreateDeleteAccountRequest implements ResolverInterface
         return $this->returnResult($message);
     }
 
-    public function returnResult($message){
+    public function returnResult($message)
+    {
         return ['result' => $message];
     }
 }
