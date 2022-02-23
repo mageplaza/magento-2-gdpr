@@ -21,6 +21,9 @@
 
 namespace Mageplaza\Gdpr\Model\Api\Data\Config;
 
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\DataObject;
+use Magento\Framework\Webapi\Rest\Request;
 use Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface;
 use Mageplaza\Gdpr\Helper\Data;
 
@@ -28,20 +31,45 @@ use Mageplaza\Gdpr\Helper\Data;
  * Class GeneralConfig
  * @package Mageplaza\Gdpr\Model\Api\Data\Config
  */
-class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConfigInterface
+class GeneralConfig implements GeneralConfigInterface
 {
     /**
      * @var Data
      */
-    private $helperData;
+    private $_helperData;
+
+    /**
+     * @var Request
+     */
+    private $_request;
+    /**
+     * @var int
+     */
+    protected $storeId;
 
     /**
      * @param Data $helperData
      */
     public function __construct(
-        Data $helperData
+        Data $helperData,
+        Request $request
     ) {
-        $this->helperData = $helperData;
+        $this->_helperData = $helperData;
+        $this->_request    = $request;
+        if (isset($this->_request->getBodyParams()['storeId'])) {
+            $this->storeId = $this->_request->getBodyParams()['storeId'];
+
+        }
+    }
+
+    public function getConfig()
+    {
+        return new DataObject([
+            "enable"                       => $this->getEnable(),
+            "allow_delete_customer"        => $this->getAllowDeleteCustomer(),
+            "delete_customer_message"      => $this->getDeleteCustomerMessage(),
+            "allow_delete_default_address" => $this->getAllowDeleteDefaultAddress()
+        ]);
     }
 
     /**
@@ -49,7 +77,7 @@ class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConf
      */
     public function getEnable()
     {
-        return (bool) $this->helperData->getConfigGeneral(self::ENABLE);
+        return (bool) $this->_helperData->getConfigGeneral(self::ENABLE, $this->storeId);
     }
 
     /**
@@ -57,7 +85,8 @@ class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConf
      */
     public function getAllowDeleteCustomer()
     {
-        return (bool) $this->helperData->getConfigGeneral(self::ALLOW_DELETE_CUSTOMER);
+        return (bool) $this->_helperData
+            ->getConfigGeneral(self::ALLOW_DELETE_CUSTOMER, $this->storeId);
     }
 
     /**
@@ -65,7 +94,8 @@ class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConf
      */
     public function getDeleteCustomerMessage()
     {
-        return $this->helperData->getConfigGeneral(self::DELETE_CUSTOMER_MESSAGE);
+        return $this->_helperData
+            ->getConfigGeneral(self::DELETE_CUSTOMER_MESSAGE, $this->storeId);
     }
 
     /**
@@ -73,6 +103,7 @@ class GeneralConfig extends \Magento\Framework\DataObject implements GeneralConf
      */
     public function getAllowDeleteDefaultAddress()
     {
-        return (bool) $this->helperData->getConfigGeneral(self::ALLOW_DELETE_DEFAULT_ADDRESS);
+        return (bool) $this->_helperData
+            ->getConfigGeneral(self::ALLOW_DELETE_DEFAULT_ADDRESS, $this->storeId);
     }
 }

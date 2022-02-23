@@ -21,29 +21,10 @@
  */
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-    <route url="/V1/gdpr" method="GET">
-        <service class="Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface" method="getEnable"/>
+    <route url="/V1/gdpr/configs" method="GET">
+        <service class="Mageplaza\Gdpr\Api\RequestsManagementInterface" method="getConfig"/>
         <resources>
-            <resource ref="Mageplaza_Gdpr::gdpr"/>
+            <resource ref="Mageplaza_Gdpr::Gdpr"/>
         </resources>
     </route>
-    <route url="/V1/gdpr/allowDeleteCustomer" method="GET">
-        <service class="Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface" method="getAllowDeleteCustomer"/>
-        <resources>
-            <resource ref="Mageplaza_Gdpr::gdpr"/>
-        </resources>
-    </route>
-    <route url="/V1/gdpr/deleteCustomerMessage" method="GET">
-        <service class="Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface" method="getDeleteCustomerMessage"/>
-        <resources>
-            <resource ref="Mageplaza_Gdpr::gdpr"/>
-        </resources>
-    </route>
-    <route url="/V1/gdpr/allowDeleteDefaultAddress" method="GET">
-        <service class="Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface" method="getAllowDeleteDefaultAddress"/>
-        <resources>
-            <resource ref="Mageplaza_Gdpr::gdpr"/>
-        </resources>
-    </route>
-
 </routes>
