@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  * Mageplaza
  *
@@ -15,12 +14,22 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     Mageplaza_Gdpr
+ * @package     Mageplaza_GdprPro
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
--->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface" type="Mageplaza\Gdpr\Model\Api\Data\Config\GeneralConfig"/>
-    <preference for="Mageplaza\Gdpr\Api\RequestsManagementInterface" type="Mageplaza\Gdpr\Model\Api\RequestsManagement"/>
-</config>
+
+namespace Mageplaza\Gdpr\Api;
+
+/**
+ * Interface RequestsManagementInterface
+ * @package Mageplaza\GdprPro\Api
+ */
+interface RequestsManagementInterface
+{
+
+    /**
+     * @return \Mageplaza\Gdpr\Api\Data\ConfigInterface
+     */
+    public function getConfig();
+}
