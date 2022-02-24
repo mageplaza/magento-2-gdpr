@@ -27,4 +27,18 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+    <route url="/V1/gdpr/deleteCustomerAccount" method="POST">
+        <service class="Mageplaza\Gdpr\Api\RequestsManagementInterface" method="deleteCustomerAccount"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+    <route url="/V1/gdpr/deleteDefaultAddress/:addressId" method="POST">
+        <service class="Mageplaza\Gdpr\Api\RequestsManagementInterface" method="deleteDefaultAddress"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+    </route>
+
 </routes>
