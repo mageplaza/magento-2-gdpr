@@ -24,7 +24,7 @@
     <route url="/V1/gdpr/configs" method="GET">
         <service class="Mageplaza\Gdpr\Api\RequestsManagementInterface" method="getConfig"/>
         <resources>
-            <resource ref="Mageplaza_Gdpr::Gdpr"/>
+            <resource ref="anonymous"/>
         </resources>
     </route>
 </routes>

@@ -107,6 +107,7 @@ class CreateDeleteAccountRequest implements ResolverInterface
 
         if (!$this->helperData->allowDeleteAccount()) {
             $message = __('Not allow delete');
+
             return $this->returnResult($message);
         }
 

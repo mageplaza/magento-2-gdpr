@@ -58,7 +58,6 @@ class CreateDeleteDefaultAddressRequest implements ResolverInterface
     public function __construct(
         Data $helperData,
         AddressRepositoryInterface $addressRepository
-
     ) {
         $this->helperData         = $helperData;
         $this->_addressRepository = $addressRepository;
