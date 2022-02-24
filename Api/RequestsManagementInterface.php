@@ -32,4 +32,16 @@ interface RequestsManagementInterface
      * @return \Mageplaza\Gdpr\Api\Data\ConfigInterface
      */
     public function getConfig();
+
+    /**
+     * @param int $addressId
+     *
+     * @return bool
+     */
+    public function deleteDefaultAddress($addressId);
+
+    /**
+     * @return string
+     */
+    public function deleteCustomerAccount();
 }
