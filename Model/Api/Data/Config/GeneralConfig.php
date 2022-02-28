@@ -80,7 +80,7 @@ class GeneralConfig implements GeneralConfigInterface
      */
     public function getEnable()
     {
-        return (bool) $this->_helperData->getConfigGeneral(self::ENABLE, $this->storeId);
+        return $this->_helperData->getConfigGeneral(self::ENABLE, $this->storeId);
     }
 
     /**
@@ -88,7 +88,7 @@ class GeneralConfig implements GeneralConfigInterface
      */
     public function getAllowDeleteCustomer()
     {
-        return (bool) $this->_helperData
+        return $this->_helperData
             ->getConfigGeneral(self::ALLOW_DELETE_CUSTOMER, $this->storeId);
     }
 

@@ -1,17 +1,17 @@
 
 type Query {
-   MpGdprConfigs:GdprConfigs @resolver(class: "Mageplaza\\Gdpr\\GraphQl\\Model\\Resolver\\Configs\\Get") @doc(description: "Get configs")
+    MpGdprConfigs:GdprConfigs @resolver(class: "Mageplaza\\Gdpr\\GraphQl\\Model\\Resolver\\Configs\\Get") @doc(description: "Get configs")
 }
 
 type GdprConfigs {
-  general: generalConfig @doc(description: "General configs")
+    general: generalConfig @doc(description: "General configs")
 }
 
 type generalConfig {
-    enabled: Boolean
-    allow_delete_customer: Boolean
+    enabled: String
+    allow_delete_customer: String
     delete_customer_message: String
-    allow_delete_default_address: Boolean
+    allow_delete_default_address: String
 }
 
 type Mutation {
@@ -20,7 +20,7 @@ type Mutation {
 }
 
 input Address {
-   id: Int!
+    id: Int!
 }
 
 type CustomerDeleteStatusOutput {
