@@ -59,11 +59,6 @@ class Get implements ResolverInterface
         $store   = $context->getExtensionAttributes()->getStore();
         $storeId = $store->getId();
 
-        /** @var ContextInterface $context */
-        if (false === $context->getExtensionAttributes()->getIsCustomer()) {
-            throw new GraphQlAuthorizationException(__('The current customer isn\'t authorized.'));
-        }
-
         if (!$this->helperData->isEnabled($storeId)) {
             throw new GraphQlInputException(__('Gdpr is disabled.'));
         }
