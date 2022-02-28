@@ -8,10 +8,10 @@ type GdprConfigs {
 }
 
 type generalConfig {
-    enabled: Boolean
-    allow_delete_customer: Boolean
+    enabled: String
+    allow_delete_customer: String
     delete_customer_message: String
-    allow_delete_default_address: Boolean
+    allow_delete_default_address: String
 }
 
 type Mutation {

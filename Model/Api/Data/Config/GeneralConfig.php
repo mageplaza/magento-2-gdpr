@@ -62,6 +62,9 @@ class GeneralConfig implements GeneralConfigInterface
         }
     }
 
+    /**
+     * @inheritDoc
+     */
     public function getConfig()
     {
         return new DataObject([
@@ -77,20 +80,20 @@ class GeneralConfig implements GeneralConfigInterface
      */
     public function getEnable()
     {
-        return (bool) $this->_helperData->getConfigGeneral(self::ENABLE, $this->storeId);
+        return $this->_helperData->getConfigGeneral(self::ENABLE, $this->storeId);
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     public function getAllowDeleteCustomer()
     {
-        return (bool) $this->_helperData
+        return $this->_helperData
             ->getConfigGeneral(self::ALLOW_DELETE_CUSTOMER, $this->storeId);
     }
 
     /**
-     * @return array|mixed|string
+     * @inheritDoc
      */
     public function getDeleteCustomerMessage()
     {
@@ -99,11 +102,11 @@ class GeneralConfig implements GeneralConfigInterface
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     public function getAllowDeleteDefaultAddress()
     {
-        return (bool) $this->_helperData
+        return $this->_helperData
             ->getConfigGeneral(self::ALLOW_DELETE_DEFAULT_ADDRESS, $this->storeId);
     }
 }
