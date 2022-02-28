@@ -41,12 +41,12 @@ interface GeneralConfigInterface extends ExtensibleDataInterface
     const ALLOW_DELETE_DEFAULT_ADDRESS = "allow_delete_default_address";
 
     /**
-     * @return int
+     * @return bool
      */
     public function getEnable();
 
     /**
-     * @return int
+     * @return bool
      */
     public function getAllowDeleteCustomer();
 
@@ -56,7 +56,7 @@ interface GeneralConfigInterface extends ExtensibleDataInterface
     public function getDeleteCustomerMessage();
 
     /**
-     * @return int
+     * @return bool
      */
     public function getAllowDeleteDefaultAddress();
 }
