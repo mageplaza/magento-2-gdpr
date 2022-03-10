@@ -167,7 +167,7 @@ class RequestsManagement implements RequestsManagementInterface
             $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer' => $customer]);
             $message = __('Customer id %1 has been deleted', $customerId);
 
-            return (string) $message;
+            return true;
         } catch (\Exception $e) {
             throw new ExceptionApi(__($e->getMessage()));
         }
