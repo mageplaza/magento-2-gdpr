@@ -143,11 +143,8 @@ class RequestsManagement implements RequestsManagementInterface
         $customerId = $this->getCurrentUserId();
         try {
             $customer = $this->_customerRepository->getById($customerId);
-        } catch (NoSuchEntityException $e) {
+        } catch (NoSuchEntityException | LocalizedException $e) {
             throw new ExceptionApi(__($e->getMessage()));
-        } catch (LocalizedException $e) {
-            throw new ExceptionApi(__($e->getMessage()));
-
         }
 
         /** event anonymise & delete customer before delete account */
@@ -165,7 +162,6 @@ class RequestsManagement implements RequestsManagementInterface
 
             /** event anonymise & delete customer after delete account */
             $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer' => $customer]);
-            $message = __('Customer id %1 has been deleted', $customerId);
 
             return true;
         } catch (\Exception $e) {
