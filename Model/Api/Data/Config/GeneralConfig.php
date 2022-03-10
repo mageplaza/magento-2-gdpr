@@ -21,7 +21,6 @@
 
 namespace Mageplaza\Gdpr\Model\Api\Data\Config;
 
-use Magento\Framework\App\RequestInterface;
 use Magento\Framework\DataObject;
 use Magento\Framework\Webapi\Rest\Request;
 use Mageplaza\Gdpr\Api\Data\Config\GeneralConfigInterface;
