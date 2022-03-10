@@ -14,7 +14,7 @@
  * version in the future.
  *
  * @category    Mageplaza
- * @package     Mageplaza_GdprPro
+ * @package     Mageplaza_Gdpr
  * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
  * @license     https://www.mageplaza.com/LICENSE.txt
  */
@@ -23,7 +23,7 @@ namespace Mageplaza\Gdpr\Api;
 
 /**
  * Interface RequestsManagementInterface
- * @package Mageplaza\GdprPro\Api
+ * @package Mageplaza\Gdpr\Api
  */
 interface RequestsManagementInterface
 {
@@ -41,7 +41,7 @@ interface RequestsManagementInterface
     public function deleteDefaultAddress($addressId);
 
     /**
-     * @return string
+     * @return bool
      */
     public function deleteCustomerAccount();
 }
