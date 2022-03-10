@@ -52,7 +52,7 @@ class Account extends Template
     }
 
     /**
-     * @return mixed|string
+     * @return \Magento\Framework\Phrase|mixed
      */
     public function getDeleteAccountMessage()
     {

@@ -23,7 +23,7 @@ namespace Mageplaza\Gdpr\Api\Data;
 
 /**
  * Interface ConfigInterface
- * @package Mageplaza\GdprPro\Api\Data
+ * @package Mageplaza\Gdpr\Api\Data
  */
 interface ConfigInterface
 {
