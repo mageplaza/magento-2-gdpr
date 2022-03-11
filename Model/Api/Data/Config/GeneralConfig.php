@@ -47,7 +47,9 @@ class GeneralConfig implements GeneralConfigInterface
     protected $storeId;
 
     /**
+     * GeneralConfig constructor.
      * @param Data $helperData
+     * @param Request $request
      */
     public function __construct(
         Data $helperData,

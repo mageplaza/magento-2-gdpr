@@ -111,14 +111,14 @@ class CreateDeleteAccountRequest implements ResolverInterface
             return $this->returnResult($message);
         }
 
-        $checktoken = new DataObject(['flag' => true]);
+        $checkToken = new DataObject(['flag' => true]);
         $customerId = $context->getUserId();
         $customer   = $this->_customerRepository->getById($customerId);
 
         /** event anonymise & delete customer before delete account */
-        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checktoken'));
+        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checkToken'));
 
-        if (!$checktoken->getFlag()) {
+        if (!$checkToken->getFlag()) {
             $message = __('Flag not exit');
 
             return $this->returnResult($message);
@@ -140,6 +140,11 @@ class CreateDeleteAccountRequest implements ResolverInterface
         return $this->returnResult($message);
     }
 
+    /**
+     * @param string $message
+     *
+     * @return array
+     */
     public function returnResult($message)
     {
         return ['result' => $message];
