@@ -92,7 +92,17 @@ class CreateDeleteAccountRequest implements ResolverInterface
     }
 
     /**
-     * @inheritdoc
+     * @param Field $field
+     * @param \Magento\Framework\GraphQl\Query\Resolver\ContextInterface $context
+     * @param ResolveInfo $info
+     * @param array|null $value
+     * @param array|null $args
+     *
+     * @return array|\Magento\Framework\GraphQl\Query\Resolver\Value|mixed
+     * @throws GraphQlAuthorizationException
+     * @throws GraphQlNoSuchEntityException
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
@@ -111,14 +121,14 @@ class CreateDeleteAccountRequest implements ResolverInterface
             return $this->returnResult($message);
         }
 
-        $checktoken = new DataObject(['flag' => true]);
+        $checkToken = new DataObject(['flag' => true]);
         $customerId = $context->getUserId();
         $customer   = $this->_customerRepository->getById($customerId);
 
         /** event anonymise & delete customer before delete account */
-        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checktoken'));
+        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checkToken'));
 
-        if (!$checktoken->getFlag())
+        if (!$checkToken>getFlag())
         {
             $message = __('Flag not exit');
             $this->registry->register('use_page_cache_plugin', false);
@@ -144,7 +154,7 @@ class CreateDeleteAccountRequest implements ResolverInterface
     }
 
     /**
-     * @param $message
+     * @param string $message
      *
      * @return array
      */

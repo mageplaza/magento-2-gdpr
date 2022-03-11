@@ -48,6 +48,7 @@ class GeneralConfig implements GeneralConfigInterface
 
     /**
      * @param Data $helperData
+     * @param Request $request
      */
     public function __construct(
         Data $helperData,

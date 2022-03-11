@@ -50,7 +50,14 @@ class Get implements ResolverInterface
     }
 
     /**
-     * @inheritdoc
+     * @param Field $field
+     * @param \Magento\Framework\GraphQl\Query\Resolver\ContextInterface $context
+     * @param ResolveInfo $info
+     * @param array|null $value
+     * @param array|null $args
+     *
+     * @return array|\Magento\Framework\GraphQl\Query\Resolver\Value|mixed
+     * @throws GraphQlInputException
      */
     public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
     {
@@ -65,7 +72,7 @@ class Get implements ResolverInterface
     }
 
     /**
-     * @param $storeId
+     * @param int $storeId
      *
      * @return array
      */
