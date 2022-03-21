@@ -21,6 +21,7 @@
 
 namespace Mageplaza\Gdpr\Block\Address;
 
+use Magento\Framework\Phrase;
 use Magento\Framework\View\Element\Template;
 use Mageplaza\Gdpr\Helper\Data as HelperData;
 
@@ -52,7 +53,7 @@ class Account extends Template
     }
 
     /**
-     * @return mixed|string
+     * @return Phrase|mixed
      */
     public function getDeleteAccountMessage()
     {

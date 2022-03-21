@@ -1,0 +1,28 @@
+
+type Query {
+    MpGdprConfigs:GdprConfigs @resolver(class: "Mageplaza\\Gdpr\\GraphQl\\Model\\Resolver\\Configs\\Get") @doc(description: "Get configs")
+}
+
+type GdprConfigs {
+    general: generalConfig @doc(description: "General configs")
+}
+
+type generalConfig {
+    enabled: String
+    allow_delete_customer: String
+    delete_customer_message: String
+    allow_delete_default_address: String
+}
+
+type Mutation {
+    mpGdprDeleteDefaultAddressRequest(input: Address!): Boolean @resolver(class: "Mageplaza\\Gdpr\\GraphQl\\Model\\Resolver\\CreateDeleteDefaultAddressRequest") @doc(description: "Request delete default address")
+    mpGdprDeleteCustomerAccountRequest: CustomerDeleteStatusOutput @resolver(class: "Mageplaza\\Gdpr\\GraphQl\\Model\\Resolver\\CreateDeleteAccountRequest") @doc(description: "Request delete customer account")
+}
+
+input Address {
+    id: Int!
+}
+
+type CustomerDeleteStatusOutput {
+    result: String!
+}
