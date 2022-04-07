@@ -124,12 +124,12 @@ class Delete extends AbstractAccount
 
         $customerId = $this->_customerSession->getCustomerId();
         $customer   = $this->_customerRepository->getById($customerId);
-        $checkToken = new DataObject(['flag' => true]);
+        $checktoken = new DataObject(['flag' => true]);
 
         /** event anonymise & delete customer before delete account */
-        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checkToken'));
+        $this->_eventManager->dispatch('anonymise_account_before_delete', compact('customer', 'checktoken'));
 
-        if (!$checkToken->getFlag()) {
+        if (!$checktoken->getFlag()) {
             $this->registry->register('use_page_cache_plugin', false);
             $this->_forward('noRoute');
 
