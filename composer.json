@@ -2,10 +2,10 @@
   "name": "mageplaza/module-gdpr",
   "description": "Magento 2 GDPR Extensions",
   "require": {
-    "mageplaza/module-core": "^1.5.2"
+    "mageplaza/module-core": "^1.5.3"
   },
   "type": "magento2-module",
-  "version": "4.2.3",
+  "version": "4.2.4",
   "license": "proprietary",
   "authors": [
     {

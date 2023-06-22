@@ -24,7 +24,7 @@ if ($block->allowDeleteAccount()): ?>
            <legend class="legend">
                <span><?= /** @noEscape */ __('Delete Account') ?></span>
            </legend><br>
-           <div class="gdpr-delete-message col-mp mp-12 mp-xs-12">
+           <div class="gdpr-delete-message col-mp mp-12 mp-xs-12" style="word-break: break-word">
                <?= /** @noEscape */ __($block->getDeleteAccountMessage())?>
            </div>
 
