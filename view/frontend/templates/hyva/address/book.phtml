@@ -39,6 +39,7 @@ if ($helper->allowDeleteDefaultAddress()): ?>
             boxBillingActions = document.querySelector('.block-addresses-default .box-address-billing .box-actions');
             deleteBillingEl   = `<a class="action delete mp-gdpr-delete btn bg-red-500"
             href="<?=  /** @noEscape */ $block->getUrl('customer/address/delete/') . $defaultBillingAddressId ?>"
+            role="delete-address" data-address="<?= /** @noEscape */ $defaultBillingAddressId ?>">
             <span><?= /** @noEscape */ __('Delete Address') ?></span></a>`;
 
             if (boxBillingActions) {
@@ -52,24 +53,24 @@ if ($helper->allowDeleteDefaultAddress()): ?>
             boxShippingActions = document.querySelector('.block-addresses-default .box-address-shipping .box-actions');
             deleteShippingEl   = `<a class="action delete mp-gdpr-delete btn bg-red-500"
             href="<?=  /** @noEscape */ $block->getUrl('customer/address/delete/') . $defaultShippingAddressId ?>"
+            role="delete-address" data-address="<?= /** @noEscape */ $defaultBillingAddressId ?>">
             <span><?= /** @noEscape */ __('Delete Address') ?></span></a>`;
 
             if (boxShippingActions) {
                 boxShippingActions.insertAdjacentHTML('beforeend', deleteShippingEl);
             }
             <?php endif; ?>
+
+            document.querySelectorAll('a.mp-gdpr-delete[role="delete-address"]').forEach(function (deleteButton) {
+                deleteButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const deleteUrl = this.getAttribute('href');
+
+                    if (confirm("<?= __('Are you sure you want to delete this address?') ?>")) {
+                        window.location.href = deleteUrl;
+                    }
+                });
+            });
         });
     </script>
-
 <?php endif; ?>
-<style>
-    .mp-gdpr-delete {
-        width: fit-content;
-        display: inline-block;
-        float: right;
-    }
-
-    .box-actions a {
-        width: fit-content;
-    }
-</style>
