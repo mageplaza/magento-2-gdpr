@@ -97,4 +97,17 @@ class Data extends AbstractData
 
         return $theme->getCode();
     }
+
+    /**
+     * @return bool
+     */
+    public function isEnabledHyvaTheme()
+    {
+        if (str_contains($this->getCurrentTheme(), "Hyva")) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
