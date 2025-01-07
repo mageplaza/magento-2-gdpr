@@ -34,7 +34,7 @@ if ($block->allowDeleteAccount()): ?>
             <?= /** @noEscape */ $block->getChildHtml('form_additional_info') ?>
             <div class="actions-toolbar col-mp mp-12 mp-xs-12">
                 <div class="primary">
-                    <button type="button" class="action save action-delete" title="<?= /** @noEscape */ __('Delete your account') ?>"
+                    <button type="button" class="action save action-delete mp-delete-btn" title="<?= /** @noEscape */ __('Delete your account') ?>"
                             x-on:click="if (confirm('<?= __('Are you sure you want to delete your account?') ?>')) {
                             window.location.href = '<?= $block->escapeUrl(rtrim($block->getDeleteAccountUrl(), '/')) ?>';
                         }">
