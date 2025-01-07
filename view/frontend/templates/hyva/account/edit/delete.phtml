@@ -27,14 +27,14 @@ if ($block->allowDeleteAccount()): ?>
             <legend class="legend">
                 <span><?= /** @noEscape */ __('Delete Account') ?></span>
             </legend><br>
-            <div class="gdpr-delete-message col-mp mp-12 mp-xs-12" style="word-break: break-word">
+            <div class="actions-toolbar gdpr-delete-message col-mp mp-12 mp-xs-12" style="word-break: break-word">
                 <?= /** @noEscape */ __($block->getDeleteAccountMessage())?>
             </div>
-
             <?= /** @noEscape */ $block->getChildHtml('form_additional_info') ?>
-            <div class="actions-toolbar col-mp mp-12 mp-xs-12">
+            <div class="col-mp mp-12 mp-xs-12">
                 <div class="primary">
-                    <button type="button" class="action save action-delete mp-delete-btn" title="<?= /** @noEscape */ __('Delete your account') ?>"
+                    <button type="button" class="action save action-delete mp-delete-btn"
+                            title="<?= /** @noEscape */ __('Delete your account') ?>"
                             x-on:click="if (confirm('<?= __('Are you sure you want to delete your account?') ?>')) {
                             window.location.href = '<?= $block->escapeUrl(rtrim($block->getDeleteAccountUrl(), '/')) ?>';
                         }">
