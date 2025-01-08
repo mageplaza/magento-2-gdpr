@@ -1,0 +1,76 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Gdpr
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Magento\Customer\Block\Address\Book $block */
+
+/** @var \Mageplaza\Gdpr\Helper\Data $helper */
+$helper = $this->helper(\Mageplaza\Gdpr\Helper\Data::class);
+
+$defaultBillingAddressId  = $block->getDefaultBilling();
+$defaultShippingAddressId = $block->getDefaultShipping();
+$themeCode                = $helper->getCurrentTheme();
+
+if ($helper->allowDeleteDefaultAddress()): ?>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            "use strict";
+
+            <?php if ($defaultBillingAddressId): ?>
+            let boxBillingActions, deleteBillingEl;
+
+            boxBillingActions = document.querySelector('.block-addresses-default .box-address-billing .box-actions');
+            deleteBillingEl   = `<a class="action delete mp-gdpr-delete btn bg-red-500"
+            href="<?=  /** @noEscape */ $block->getUrl('customer/address/delete/') . $defaultBillingAddressId ?>"
+            role="delete-address" data-address="<?= /** @noEscape */ $defaultBillingAddressId ?>">
+            <span><?= /** @noEscape */ __('Delete Address') ?></span></a>`;
+
+            if (boxBillingActions) {
+                boxBillingActions.insertAdjacentHTML('beforeend', deleteBillingEl);
+            }
+            <?php endif; ?>
+
+            <?php if ($defaultShippingAddressId): ?>
+            let boxShippingActions, deleteShippingEl;
+
+            boxShippingActions = document.querySelector('.block-addresses-default .box-address-shipping .box-actions');
+            deleteShippingEl   = `<a class="action delete mp-gdpr-delete btn bg-red-500"
+            href="<?=  /** @noEscape */ $block->getUrl('customer/address/delete/') . $defaultShippingAddressId ?>"
+            role="delete-address" data-address="<?= /** @noEscape */ $defaultBillingAddressId ?>">
+            <span><?= /** @noEscape */ __('Delete Address') ?></span></a>`;
+
+            if (boxShippingActions) {
+                boxShippingActions.insertAdjacentHTML('beforeend', deleteShippingEl);
+            }
+            <?php endif; ?>
+
+            document.querySelectorAll('a.mp-gdpr-delete[role="delete-address"]').forEach(function (deleteButton) {
+                deleteButton.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const deleteUrl = this.getAttribute('href');
+
+                    if (confirm("<?= __('Are you sure you want to delete this address?') ?>")) {
+                        window.location.href = deleteUrl;
+                    }
+                });
+            });
+        });
+    </script>
+<?php endif; ?>
