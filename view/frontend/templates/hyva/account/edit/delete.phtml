@@ -45,24 +45,24 @@ if ($block->allowDeleteAccount()): ?>
             <div class="modal-container bg-white p-6 shadow-lg">
                 <?php if ($block->isVerifyPassword()) :?>
                 <header class="modal-header">
-                    <h2 class="text-xl font-semibold mb-4"><?= __('Please confirm password') ?></h2>
+                    <h2 class="text-xl font-semibold mb-4"><?= /** @noEscape */ __('Please confirm password') ?></h2>
                 </header>
                 <div class="modal-content">
                     <input type="password" x-model="password" class="border p-2 w-full mb-4 px-4" placeholder="Enter your password"/>
                     <p x-show="errorMessage" class="message error text-sm" x-text="errorMessage"></p>
                     <div class="flex justify-end space-x-2 px-4">
-                        <button @click="closeModal" class="btn-cancel px-4"><?= __('Cancel') ?></button>
-                        <button @click="confirmPassword" class="action-primary px-4 py-2 text-white border"><?= __('Confirm') ?></button>
+                        <button @click="closeModal" class="btn-cancel px-4"><?= /** @noEscape */ __('Cancel') ?></button>
+                        <button @click="confirmPassword" class="action-primary px-4 py-2 text-white border"><?= /** @noEscape */ __('Confirm') ?></button>
                     </div>
                 </div>
                 <?php else:?>
                     <header class="modal-header">
-                        <h2 class="text-xl font-semibold mb-4"><?= __('Are you sure you want to delete your account?')?></h2>
+                        <h2 class="text-xl font-semibold mb-4"><?= /** @noEscape */ __('Are you sure you want to delete your account?')?></h2>
                     </header>
                 <div class="modal-content">
                     <div class="flex justify-end space-x-2 px-4">
-                        <button @click="closeModal" class="btn-cancel px-4"><?= __('Cancel') ?></button>
-                        <button @click="confirm" class="action-primary px-4 py-2 text-white border"><?= __('Ok') ?></button>
+                        <button @click="closeModal" class="btn-cancel px-4"><?= /** @noEscape */ __('Cancel') ?></button>
+                        <button @click="confirm" class="action-primary px-4 py-2 text-white border"><?= /** @noEscape */ __('Ok') ?></button>
                     </div>
                 </div>
                 <?php endif;?>
