@@ -86,4 +86,13 @@ class Account extends Template
     {
         return $this->getUrl('customer/account/delete');
     }
+
+    /**
+     * @return bool
+     */
+    public function isVerifyPassword() {
+        $helperPro = $this->_helperData->createObject(\Mageplaza\GdprPro\Helper\Data::class);
+
+        return $this->_helperData->isModuleOutputEnabled('Mageplaza_GdprPro') && $helperPro->allowVerifyPassword();
+    }
 }

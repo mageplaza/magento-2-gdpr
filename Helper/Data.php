@@ -109,5 +109,4 @@ class Data extends AbstractData
 
         return false;
     }
-
 }

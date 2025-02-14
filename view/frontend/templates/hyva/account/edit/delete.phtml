@@ -43,6 +43,7 @@ if ($block->allowDeleteAccount()): ?>
         <div x-show="isOpen" x-cloak x-transition
              class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div class="modal-container bg-white p-6 shadow-lg">
+                <?php if ($block->isVerifyPassword()) :?>
                 <header class="modal-header">
                     <h2 class="text-xl font-semibold mb-4"><?= __('Please confirm password') ?></h2>
                 </header>
@@ -54,6 +55,17 @@ if ($block->allowDeleteAccount()): ?>
                         <button @click="confirmPassword" class="action-primary px-4 py-2 text-white border"><?= __('Confirm') ?></button>
                     </div>
                 </div>
+                <?php else:?>
+                    <header class="modal-header">
+                        <h2 class="text-xl font-semibold mb-4"><?= __('Are you sure you want to delete your account?')?></h2>
+                    </header>
+                <div class="modal-content">
+                    <div class="flex justify-end space-x-2 px-4">
+                        <button @click="closeModal" class="btn-cancel px-4"><?= __('Cancel') ?></button>
+                        <button @click="confirm" class="action-primary px-4 py-2 text-white border"><?= __('Ok') ?></button>
+                    </div>
+                </div>
+                <?php endif;?>
             </div>
         </div>
     </div>
@@ -64,7 +76,9 @@ if ($block->allowDeleteAccount()): ?>
                 password: '',
                 errorMessage: '',
                 deleteUrl: '<?= /** @noEscape */ $block->escapeUrl(rtrim($block->getDeleteAccountUrl(), '/')) ?>',
-                checkPasswordUrl: '<?= /** @noEscape */ $block->getExtraData()['checkpasswordUrl'] ?>',
+                <?php if ($block->isVerifyPassword()) :?>
+                    checkPasswordUrl: '<?= /** @noEscape */ $block->getExtraData()['checkpasswordUrl'] ?>',
+                <?php endif;?>
 
                 openModal() {
                     this.isOpen = true;
@@ -74,38 +88,69 @@ if ($block->allowDeleteAccount()): ?>
                 closeModal() {
                     this.isOpen = false;
                 },
-                confirmPassword() {
-                    if (!this.password) {
-                        this.errorMessage = '<?= /** @noEscape */ __('Password is empty, please fill out your password again!') ?>';
-                        return;
-                    }
-
-                    fetch(this.checkPasswordUrl + '?form_key=' + hyva.getFormKey(), {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            password: this.password
-                        })
-                    })
-                    .then((response) => {
-                        return response.json()
-                    })
-                    .then((data) => {
-                        if (data.status) {
-                            window.location.href = this.deleteUrl;
-                        } else {
-                            this.errorMessage = '<?= /** @noEscape */ __('Password is not correct. Please try again!') ?>';
+                <?php if ($block->isVerifyPassword()) :?>
+                    confirmPassword() {
+                        if (!this.password) {
+                            this.errorMessage = '<?= /** @noEscape */ __('Password is empty, please fill out your password again!') ?>';
+                            return;
                         }
-                    })
-                    .catch((error) => {
-                        this.errorMessage = '<?= /** @noEscape */ __('An error occurred. Please try again.') ?>';
-                    });
-                }
+
+                        fetch(this.checkPasswordUrl + '?form_key=' + hyva.getFormKey(), {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                password: this.password
+                            })
+                        })
+                        .then((response) => {
+                            return response.json()
+                        })
+                        .then((data) => {
+                            if (data.status) {
+                                window.location.href = this.deleteUrl;
+                            } else {
+                                this.errorMessage = '<?= /** @noEscape */ __('Password is not correct. Please try again!') ?>';
+                            }
+                        })
+                        .catch(this.errorMessage = '<?= /** @noEscape */ __('An error occurred. Please try again.') ?>');
+                    }
+                <?php else: ?>
+                    confirm() {
+                        window.location.href = this.deleteUrl;
+                    }
+                <?php endif; ?>
             };
         }
     </script>
+    <style>
+        .modal-container{
+            width: 30%;
+            margin-top: -35rem;
+            padding: 1.5rem 2rem;
+        }
+        .modal-container h2 {
+            border-bottom: 1px solid #c1c1c1;
+            font-weight: 300;
+            padding-bottom: 10px;
+            font-size: 26px;
+            min-height: 1em;
+            word-wrap: break-word;
+        }
+        .btn-cancel {
+            margin-top: 20px;
+        }
+        .action-primary {
+            background-color: #1d4ed8;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            font-size: .875rem;
+            line-height: 1.25rem;
+            border-radius: .5rem;
+            margin-top: 20px;
+        }
+    </style>
 <?php endif; ?>
 <?=  /** @noEscape */ $block->getChildHtml('gdpr_pro_customer_download_personal_data_info') ?>
 
