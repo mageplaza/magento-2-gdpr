@@ -100,7 +100,6 @@ if ($block->allowDeleteAccount()): ?>
                         }
                     })
                     .catch((error) => {
-                        console.log('Erroorororor:' + error)
                         this.errorMessage = '<?= /** @noEscape */ __('An error occurred. Please try again.') ?>';
                     });
                 }
