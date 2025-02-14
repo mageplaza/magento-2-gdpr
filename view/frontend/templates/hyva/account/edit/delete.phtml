@@ -114,7 +114,9 @@ if ($block->allowDeleteAccount()): ?>
                                 this.errorMessage = '<?= /** @noEscape */ __('Password is not correct. Please try again!') ?>';
                             }
                         })
-                        .catch(this.errorMessage = '<?= /** @noEscape */ __('An error occurred. Please try again.') ?>');
+                        .catch((error) => {
+                            this.errorMessage = '<?= /** @noEscape */ __('An error occurred. Please try again.') ?>';
+                        });
                     }
                 <?php else: ?>
                     confirm() {
