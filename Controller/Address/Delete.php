@@ -70,7 +70,7 @@ class Delete extends Action
     {
         $addressId = $this->getRequest()->getParam('id');
 
-        if ($this->helper->isEnabledHyvaTheme()) {
+        if ($this->helper->checkHyvaTheme()) {
             $addressId = array_search("", $this->getRequest()->getParams(), true);;
         }
 
