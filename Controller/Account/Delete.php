@@ -26,7 +26,6 @@ use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Controller\AbstractAccount;
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\Result\Redirect;
 use Magento\Framework\Controller\ResultInterface;
@@ -90,6 +89,8 @@ class Delete extends AbstractAccount
      * @param Registry $registry
      * @param LoggerInterface $logger
      * @param Data $helper
+     * @param CookieMetadataFactory $cookieMetadataFactory
+     * @param PhpCookieManager $cookieMetadataManager
      */
     public function __construct(
         Context $context,
@@ -97,13 +98,17 @@ class Delete extends AbstractAccount
         Session $customerSession,
         Registry $registry,
         LoggerInterface $logger,
-        Data $helper
+        Data $helper,
+        CookieMetadataFactory $cookieMetadataFactory,
+        PhpCookieManager $cookieMetadataManager
     ) {
         $this->_customerRepository = $customerRepository;
         $this->_customerSession    = $customerSession;
         $this->registry            = $registry;
         $this->logger              = $logger;
         $this->_helper             = $helper;
+        $this->cookieMetadataFactory = $cookieMetadataFactory;
+        $this->cookieMetadataManager = $cookieMetadataManager;
 
         parent::__construct($context);
     }
@@ -148,10 +153,10 @@ class Delete extends AbstractAccount
             /** event anonymise & delete customer after delete account */
             $this->_eventManager->dispatch('anonymise_account_after_delete', ['customer' => $customer]);
 
-            if ($this->getCookieManager()->getCookie('mage-cache-sessid')) {
-                $metadata = $this->getCookieMetadataFactory()->createCookieMetadata();
+            if ($this->cookieMetadataManager->getCookie('mage-cache-sessid')) {
+                $metadata = $this->cookieMetadataFactory->createCookieMetadata();
                 $metadata->setPath('/');
-                $this->getCookieManager()->deleteCookie('mage-cache-sessid', $metadata);
+                $this->cookieMetadataManager->deleteCookie('mage-cache-sessid', $metadata);
             }
 
             $resultRedirect->setPath('*/*/deleteSuccess');
@@ -162,35 +167,5 @@ class Delete extends AbstractAccount
         }
 
         return $resultRedirect;
-    }
-
-    /**
-     * Retrieve cookie manager
-     *
-     * @return     PhpCookieManager
-     * @deprecated
-     */
-    private function getCookieManager()
-    {
-        if (!$this->cookieMetadataManager) {
-            $this->cookieMetadataManager = ObjectManager::getInstance()->get(PhpCookieManager::class);
-        }
-
-        return $this->cookieMetadataManager;
-    }
-
-    /**
-     * Retrieve cookie metadata factory
-     *
-     * @return     CookieMetadataFactory
-     * @deprecated
-     */
-    private function getCookieMetadataFactory()
-    {
-        if (!$this->cookieMetadataFactory) {
-            $this->cookieMetadataFactory = ObjectManager::getInstance()->get(CookieMetadataFactory::class);
-        }
-
-        return $this->cookieMetadataFactory;
     }
 }
