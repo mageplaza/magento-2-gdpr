@@ -66,7 +66,7 @@ class CreateDeleteDefaultAddressRequest implements ResolverInterface
     /**
      * @inheritdoc
      */
-    public function resolve(Field $field, $context, ResolveInfo $info, array $value = null, array $args = null)
+    public function resolve(Field $field, $context, ResolveInfo $info, ?array $value = null, ?array $args = null)
     {
         /** @var ContextInterface $context */
         if (false === $context->getExtensionAttributes()->getIsCustomer()) {
