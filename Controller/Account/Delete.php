@@ -102,11 +102,11 @@ class Delete extends AbstractAccount
         CookieMetadataFactory $cookieMetadataFactory,
         PhpCookieManager $cookieMetadataManager
     ) {
-        $this->_customerRepository = $customerRepository;
-        $this->_customerSession    = $customerSession;
-        $this->registry            = $registry;
-        $this->logger              = $logger;
-        $this->_helper             = $helper;
+        $this->_customerRepository   = $customerRepository;
+        $this->_customerSession      = $customerSession;
+        $this->registry              = $registry;
+        $this->logger                = $logger;
+        $this->_helper               = $helper;
         $this->cookieMetadataFactory = $cookieMetadataFactory;
         $this->cookieMetadataManager = $cookieMetadataManager;
 
