@@ -25,6 +25,7 @@
         <gdpr>
             <module>
                 <type>1</type>
+                <user_guide>magento/gdpr</user_guide>
             </module>
             <general>
                 <enabled>1</enabled>

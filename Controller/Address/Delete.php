@@ -27,6 +27,7 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
+use Mageplaza\Gdpr\Helper\Data;
 
 /**
  * Class Delete
@@ -41,17 +42,24 @@ class Delete extends Action
     protected $_addressRepository;
 
     /**
+     * @var Data
+     */
+    protected $helper;
+
+    /**
      * Delete constructor.
      *
      * @param Context $context
      * @param AddressRepositoryInterface $addressRepository
+     * @param Data $helper
      */
     public function __construct(
         Context $context,
-        AddressRepositoryInterface $addressRepository
+        AddressRepositoryInterface $addressRepository,
+        Data $helper
     ) {
         $this->_addressRepository = $addressRepository;
-
+        $this->helper             = $helper;
         parent::__construct($context);
     }
 
@@ -61,6 +69,11 @@ class Delete extends Action
     public function execute()
     {
         $addressId = $this->getRequest()->getParam('id');
+
+        if ($this->helper->checkHyvaTheme()) {
+            $addressId = array_search("", $this->getRequest()->getParams(), true);;
+        }
+
         try {
             $this->_addressRepository->deleteById($addressId);
             $this->messageManager->addSuccess(__('Successfully deleted customer address'));
