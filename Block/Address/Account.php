@@ -21,6 +21,7 @@
 
 namespace Mageplaza\Gdpr\Block\Address;
 
+use Magento\Framework\Module\Manager;
 use Magento\Framework\Phrase;
 use Magento\Framework\View\Element\Template;
 use Mageplaza\Gdpr\Helper\Data as HelperData;
@@ -31,6 +32,12 @@ use Mageplaza\Gdpr\Helper\Data as HelperData;
  */
 class Account extends Template
 {
+
+    /**
+     * @var Manager
+     */
+    protected $manager;
+
     /**
      * @var HelperData
      */
@@ -45,9 +52,11 @@ class Account extends Template
      */
     public function __construct(
         Template\Context $context,
+        Manager $manager,
         HelperData $helperData,
         array $data = []
     ) {
+        $this->manager     = $manager;
         $this->_helperData = $helperData;
         parent::__construct($context, $data);
     }
@@ -90,9 +99,15 @@ class Account extends Template
     /**
      * @return bool
      */
-    public function isVerifyPassword() {
-        $helperPro = $this->_helperData->createObject(\Mageplaza\GdprPro\Helper\Data::class);
+    public function isVerifyPassword()
+    {
+        if ($this->manager->isEnabled('Mageplaza_GdprPro')) {
+            $helperPro = $this->_helperData->createObject(\Mageplaza\GdprPro\Helper\Data::class);
 
-        return $this->_helperData->isModuleOutputEnabled('Mageplaza_GdprPro') && $helperPro->allowVerifyPassword();
+            return $this->_helperData->isModuleOutputEnabled('Mageplaza_GdprPro')
+                && $helperPro->allowVerifyPassword();
+        }
+
+        return false;
     }
 }
