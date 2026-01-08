@@ -70,10 +70,6 @@ class Delete extends Action
     {
         $addressId = $this->getRequest()->getParam('id');
 
-        if ($this->helper->checkHyvaTheme()) {
-            $addressId = array_search("", $this->getRequest()->getParams(), true);;
-        }
-
         try {
             $this->_addressRepository->deleteById($addressId);
             $this->messageManager->addSuccess(__('Successfully deleted customer address'));
