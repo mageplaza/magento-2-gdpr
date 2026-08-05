@@ -21,3 +21,13 @@ Enable,Enable
 "The message will be shown on Delete Account area. HTML code is allowed.","The message will be shown on Delete Account area. HTML code is allowed."
 "Allow Deleting Default Address","Allow Deleting Default Address"
 "Your account has been deleted.","Your account has been deleted."
+An error occurred. Please try again.,An error occurred. Please try again.
+Are you sure you want to delete this address?,Are you sure you want to delete this address?
+Cancel,Cancel
+Confirm,Confirm
+Delete,Delete
+No customer,No customer
+Ok,Ok
+"Password is empty, please fill out your password again!","Password is empty, please fill out your password again!"
+Password is not correct. Please try again!,Password is not correct. Please try again!
+Please confirm password,Please confirm password
