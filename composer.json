@@ -1,26 +1,26 @@
 {
-  "name": "mageplaza/module-gdpr",
-  "description": "Magento 2 GDPR Extensions",
-  "require": {
-    "mageplaza/module-core": "^1.5.14"
-  },
-  "type": "magento2-module",
-  "version": "4.2.9",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Mageplaza",
-      "email": "support@mageplaza.com",
-      "homepage": "https://www.mageplaza.com",
-      "role": "Technical Support"
-    }
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "mageplaza/module-gdpr",
+    "description": "Magento 2 GDPR Extensions",
+    "require": {
+        "mageplaza/module-core": "^1.5.14"
+    },
+    "type": "magento2-module",
+    "version": "4.2.10",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Mageplaza",
+            "email": "support@mageplaza.com",
+            "homepage": "https://www.mageplaza.com",
+            "role": "Technical Support"
+        }
     ],
-    "psr-4": {
-      "Mageplaza\\Gdpr\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mageplaza\\Gdpr\\": ""
+        }
     }
-  }
 }
